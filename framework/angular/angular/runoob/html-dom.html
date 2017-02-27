@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+</head>
+<body>
+	<h4>Angular Html Dom</h4>
+	<div ng-app="" ng-controller="htmlDomController">
+
+		<p><button ng-disabled="mySwitch" ng-click="count = count + 1">点我</button></p>
+
+		<p>点击上面按钮自增：{{count}}</p>
+
+		<p><label><input type="checkbox" ng-model="mySwitch"> 点击让按钮不可触发</label></p>
+
+		<table>
+			<thead>
+				<tr>
+					<th><label><input type="checkbox" ng-model="allSelect"> 全选</label></th>
+					<th>name</th>
+					<th>age</th>
+					<th>sex</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td><input type="checkbox" ng-checked="allSelect"></td>
+					<td>11</td>
+					<td>22</td>
+					<td>33</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" ng-checked="allSelect"></td>
+					<td>44</td>
+					<td>55</td>
+					<td>66</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" ng-checked="allSelect"></td>
+					<td>77</td>
+					<td>88</td>
+					<td>99</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p ng-show="true">我是用ng-show可见的~</p>
+		<p ng-show="false">我是用ng-show不可见的~</p>
+		<p ng-hide="false">我是用ng-hide可见到~</p>
+		<p ng-hide="true">我是用ng-hide不可见的~</p>
+
+
+		<p><button ng-click="httpClick()">隐藏/显示</button></p>
+		<p ng-show="showAndHide">前端，钱，Duang~</p>
+	</div>
+
+	<script src="//cdn.bootcss.com/angular.js/1.2.28/angular.min.js"></script>
+	<script>
+	function htmlDomController($scope) {
+		$scope.count = 1;
+		$scope.httpClick = function() {
+			$scope.showAndHide = !$scope.showAndHide;
+		}
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "angular",
+  "version": "0.0.1",
+  "authors": [
+    "Mr. Super <linzechao44@163.com>"
+  ],
+  "description": "project angular",
+  "main": "",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.5"
+  }
+}

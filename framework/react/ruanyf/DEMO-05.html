@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>DEMO 05</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- React核心库 -->
+    <script src="../bower_components/react/react.min.js"></script>
+
+    <!-- React提供与DOM相关的功能 -->
+    <script src="../bower_components/react/react-dom.min.js"></script>
+
+    <!-- 解析JSX语法 -->
+    <script src="../bower_components/babel/browser.min.js"></script>
+</head>
+
+<body class="container">
+    <header id="header"></header>
+
+    <script type="text/babel">
+        var Hello = React.createClass({
+            getInitialState: function() {
+                return {
+                    opacity: 1.0
+                };
+            },
+
+            // 已渲染成DOM
+            componentDidMount: function() {
+                this.timer = setInterval(function() {
+                    var opacity = this.state.opacity;
+                    opacity -= .05;
+
+                    if (opacity < 0.1) {
+                        opacity = 1.0
+                    }
+
+                    this.setState({
+                        opacity: opacity
+                    });
+
+                }.bind(this), 100);
+            },
+
+            render: function() {
+                return (
+                    <div style={{opacity: this.state.opacity}}>
+                        Hello {this.props.name}!
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <Hello name="Super" />,
+
+            document.getElementById('header')
+        );
+    </script>
+</body>
+</html>

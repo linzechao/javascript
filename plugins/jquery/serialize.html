@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title></title>
+    <style></style>
+</head>
+<body>
+<div class="table">
+    <tr><input type="text" name="aa" value="aa"></tr>
+    <tr><input type="text" name="bb" value="bb"></tr>
+    <tr><input type="text" name="cc" value="cc"></tr>
+    <tr><input type="text" name="dd" value="dd"></tr>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $(function() {
+        var tb = $('.table');
+        var inp = tb.find('input');
+        console.log(inp.serialize());
+    });
+</script>
+</body>
+</html>

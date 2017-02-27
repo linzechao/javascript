@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>SeaJs</title>
+</head>
+<body>
+<h1>SeaJs <small><a href="http://www.zhangxinxu.com/sp/seajs/docs/zh-cn/index.html">手册与文档</a></small></h1>
+<h2>AMD与CMD<small><a href="http://www.zhihu.com/question/20351507/answer/14859415">的区别</a></small></h2>
+<!-- <script src="//cdn.bootcss.com/seajs/3.0.1/sea.js"></script> -->
+<script src="js/sea.js"></script>
+<script>
+	// seajs的简单配置
+	seajs.config({
+		base: './js/',
+		alias: {
+			'jquery': 'utils/jquery.js',
+			'mustache': 'utils/mustache.js',
+			'cookie': 'helper/cookie.js',
+			'console': 'helper/console.js'
+		},
+		debug: true
+	});
+
+	// 加载入口模块no
+	/*seajs.use('main', function(main) {
+		// console.info(main);
+		// main.doSomething();
+	});*/
+
+	seajs.use('main');
+</script>
+</body>
+</html>

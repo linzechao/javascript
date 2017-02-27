@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>DEMO 02</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- React核心库 -->
+    <script src="../bower_components/react/react.min.js"></script>
+
+    <!-- React提供与DOM相关的功能 -->
+    <script src="../bower_components/react/react-dom.min.js"></script>
+
+    <!-- 解析JSX语法 -->
+    <script src="../bower_components/babel/browser.min.js"></script>
+</head>
+
+<body class="container">
+    <article id="say-hello"></article>
+    <article id="price"></article>
+    <article id="content"></article>
+
+    <script type="text/babel">
+        /*
+         * 组件类
+         */
+        var HelloMessage = React.createClass({
+            render: function() {
+                return <h3 className={this.props.class}>Hello {this.props.name}!</h3>;
+            }
+        });
+
+
+        /*
+         * 单标签一定要使用反斜杠“/”结束
+         * 组件类指能包含一个顶级HTML标签
+         * 属性class得换成className
+         * for得换成htmlFor
+         */
+        ReactDOM.render(
+            <HelloMessage class="bg-primary" name="Super" />,
+
+            document.getElementById('say-hello')
+        );
+
+
+        /*
+         * 子标签
+         * this.props.children
+         * 不能使用this关键字，只能使用参数
+         */
+        var NoteList = React.createClass({
+            render: function() {
+                return (
+                    <p>
+                        {
+                            React.Children.map(this.props.children, function(child) {
+                                // console.log(child);
+                                // console.log(child.props.className);
+
+                                // HTML标签不能使用动态获取
+                                // return <{child.type} className={child.props.className}>{child.props.children}</{child.type}>;
+
+                                return <span className={child.props.className}>{child.props.children}</span>;
+                            })
+                        }
+                    </p>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <NoteList>
+                <span className="text-danger">￥1200.88</span>
+                <span className="text-primary">/元</span>
+            </NoteList>,
+
+            document.getElementById('price')
+        );
+
+
+        /*
+         * PropTypes属性
+         */
+        var MyTitle = React.createClass({
+            // 判断属性类型
+            propTypes: {
+                title: React.PropTypes.string.isRequired
+            },
+
+            // 设置默认值
+            getDefaultProps: function() {
+                return {
+                    name: 'Default Name'
+                };
+            },
+
+            render: function() {
+                return <small data-name={this.props.name}>{this.props.title}</small>;
+            }
+        });
+
+        var data = 123, time = 0.12, date = '2016-08-01', fun = function() {
+                return 'function type';
+            };
+
+        ReactDOM.render(
+            <MyTitle title={data} />,
+
+            document.getElementById('content')
+        );
+    </script>
+</body>
+</html>

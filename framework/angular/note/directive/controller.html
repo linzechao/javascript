@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans" ng-app="ctrlApp">
+<head>
+    <meta charset="utf-8">
+    <title>Controller Function</title>
+    <style>
+        body {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            margin-left: 10px;
+            padding: 5px 10px;
+            border: 2px solid #000;
+            background-color: rgba(0, 0, 0, .6);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #000;
+            border-color: rgba(0, 0, 0, .6);
+        }
+    </style>
+</head>
+<body>
+    <superman strength>动感超人----力量</superman>
+    <superman strength speed>动感超人----力量+敏捷</superman>
+    <superman strength speed light>动感超人----力量+敏捷+发光</superman>
+
+
+    <script src="../../bower_components/angular/angular.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            var ctrlApp = angular.module('ctrlApp', []);
+
+            ctrlApp.directive('superman', function() {
+                return {
+                    // 启动独立scope
+                    // 绑定策略
+                    scope: {
+                        // 单向绑定
+                        attr: '@',
+
+                        // 双向绑定
+                        attr: '=',
+
+                        // 传递绑定函数
+                        attr: '&'
+                    },
+
+
+
+                    restrict: 'E',
+
+                    controller: function($scope) {
+                        $scope.abilities = [];
+
+                        this.addStrength = function() {
+                            $scope.abilities.push('strength');
+                        };
+
+                        this.addSpeed = function() {
+                            $scope.abilities.push('speen');
+                        };
+
+                        this.addLight = function() {
+                            $scope.abilities.push('light');
+                        };
+                    },
+
+                    link: function(scope, element, attrs) {
+                        element.addClass('btn btn-primary');
+                        element.on('mouseenter', function() {
+                            console.log(scope.abilities);
+                        });
+                    }
+                };
+            });
+
+            ctrlApp.directive('strength', function() {
+                return {
+                    require: '^superman',
+                    link: function(scope, element, attr, supermanCtrl) {
+                        supermanCtrl.addStrength();
+                    }
+                };
+            });
+
+            ctrlApp.directive('speed', function() {
+                return {
+                    require: '^superman',
+                    link: function(scope, element, attr, supermanCtrl) {
+                        supermanCtrl.addSpeed();
+                    }
+                };
+            });
+
+            ctrlApp.directive('light', function() {
+                return {
+                    require: '^superman',
+                    link: function(scope, element, attr, supermanCtrl) {
+                        supermanCtrl.addLight();
+                    }
+                };
+            });
+        }());
+    </script>
+</body>
+</html>

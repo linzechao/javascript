@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>DEMO 03</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- React核心库 -->
+    <script src="../bower_components/react/react.min.js"></script>
+
+    <!-- React提供与DOM相关的功能 -->
+    <script src="../bower_components/react/react-dom.min.js"></script>
+
+    <!-- 解析JSX语法 -->
+    <script src="../bower_components/babel/browser.min.js"></script>
+
+    <style>
+        #true-dom {
+            margin-top: 200px;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <article id="true-dom"></article>
+
+    <article id="toggle"></article>
+
+    <script type="text/babel">
+        /*
+         * 获取真实的DOM节点
+         * refs属性等同于所有包含ref属性的标签数组
+         * refs需要等至DOM节点加载完才可调用
+         */
+
+        var MyComponent = React.createClass({
+            handleClick: function() {
+                this.refs.myTextInput.value = '会！';
+                this.refs.myTextInput.focus();
+            },
+
+            copyFun: function() {
+                // alert('you copy le!');
+                this.refs.myTextInput.value = '';
+                this.refs.myTextInput.focus();
+                // 返回false还是能复制，不够机智
+                return false;
+            },
+
+            render: function() {
+                return (
+                    <section>
+                        <div className="input-group input-group-sm">
+                            <input className="form-control" type="text" ref="myTextInput" placeholder="百度一下，你会死啊！" />
+                            <span className="input-group-btn">
+                                <input className="btn btn-primary btn-xs" type="button" value="百度一下" onClick={this.handleClick} />
+                            </span>
+                        </div>
+                        <div className="help-block" ref="help" onCopy={this.copyFun}>COPY ME!</div>
+                    </section>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <MyComponent />,
+            document.getElementById('true-dom')
+        );
+
+
+        /*
+         * this.state状态码
+         */
+        var LikeButton = React.createClass({
+            // 初始化
+            getInitialState: function() {
+                return {liked: false};
+            },
+
+            handleClick: function(event) {
+                this.setState({liked: !this.state.liked});
+            },
+
+            render: function() {
+                var text = this.state.liked ? 'like' : 'haven\'t liked';
+
+                return (
+                    <p onClick={this.handleClick}>
+                        You {text} this. Click to toggle.
+                    </p>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <LikeButton />,
+            document.getElementById('toggle')
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>演示案例</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f8f8f8;
+        }
+
+        #ec {
+            width: 800px;
+            height: 360px;
+            margin: 40px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="ec"></div>
+    <script src="bower_components/echarts/dist/echarts.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            var ec = echarts.init(document.getElementById('ec')),
+
+                option = {
+                    tooltip: {
+                        trigger: 'axis',
+                        // showContent: false
+                        // alwaysShowContent: false,
+                        axisPointer: {
+                            type: 'shadow',
+                            type: 'cross',
+                            type: 'line',
+                            // animation: false,
+                        }
+                    },
+                    legend: {
+                        data:['洽谈量','来访量','留言量','邀约量','成交量']
+                    },
+                    grid: {
+                        top: 30,
+                        right: 15,
+                        bottom: 0,
+                        left: 0,
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type : 'category',
+                        boundaryGap: false,
+                        splitLine: {show: false},
+                        axisTick: {length: 0},
+                        data: ['1-1','1-5','1-10','1-15','1-20','1-25','1-30']
+                    },
+                    yAxis: {
+                        type : 'value',
+                        splitLine: {
+                            lineStyle: {
+                                color: '#ddd',
+                                type: 'dashed'
+                            }
+                        },
+                        axisTick: {length: 0},
+                        splitNumber: 15
+                    },
+                    series : [
+                        {
+                            name:'来访量',
+                            type:'line',
+                            stack: '总',
+                            symbol: 'none',
+                            areaStyle: {normal: {}},
+                            animationEasing: 'bounceIn',
+                            data:[120, 132, 101, 134, 90, 230, 210]
+                        },
+                        {
+                            name:'洽谈量',
+                            type:'line',
+                            stack: '总',
+                            symbol: 'none',
+                            areaStyle: {normal: {}},
+                            animationEasing: 'bounceOut',
+                            data:[220, 182, 191, 234, 290, 330, 310]
+                        },
+                        {
+                            name:'留言量',
+                            type:'line',
+                            stack: '总',
+                            symbol: 'none',
+                            areaStyle: {normal: {}},
+                            animationEasing: 'bounceInOut',
+                            data:[150, 232, 201, 154, 190, 330, 410]
+                        },
+                        {
+                            name:'邀约量',
+                            type:'line',
+                            stack: '总',
+                            symbol: 'none',
+                            areaStyle: {normal: {}},
+                            animationEasing: 'backOut',
+                            data:[320, 332, 301, 334, 390, 330, 320]
+                        },
+                        {
+                            name:'成交量',
+                            type:'line',
+                            stack: '总',
+                            symbol: 'none',
+                            areaStyle: {normal: {}},
+                            animationEasing: 'backIn',
+                            data:[820, 932, 901, 934, 1290, 1330, 1320]
+                        }
+                    ]
+                };
+
+            ec.setOption(option);
+        }());
+    </script>
+</body>
+</html>

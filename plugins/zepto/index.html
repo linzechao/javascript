@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Zepto.js</title>
+    <style>
+        .panel  {
+            width: 100%;
+            height: 400px;
+            background-color: #eee;
+        }
+
+        .content {
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+        }
+
+        textarea {
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>11</li>
+        <li class="two">22</li>
+        <li>33</li>
+    </ul>
+    <p>content</p>
+
+    <input type="checkbox" name="val" value="1" checked>
+    <input type="checkbox" name="val" value="2" checked>
+    <input type="checkbox" name="val" value="3" checked>
+    <input type="checkbox" name="val" value="4" checked>
+
+    <select multiple>
+        <option value="1">1</option>
+        <option value="2" selected>2</option>
+        <option value="3">3</option>
+        <option value="4" selected>4</option>
+    </select>
+
+    <section class="panel">
+        <article class="content">内容</article>
+    </section>
+
+
+
+    <textarea>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+        add<br>
+    </textarea>
+
+    <script src="zepto.js"></script>
+    <script>
+        $(function() {
+            'use strict';
+
+            // $('li, p').css('background', '#eee');
+            $('li').add('p').css('background', '#eee');
+        });
+
+        /*console.log($('li').filter('.two'));
+        console.log($.grep($('li'), function(item) {
+            // return $(item).is('.two');
+            // return $(item).has('.two');
+            return $(item).hasClass('two');
+        }));
+
+        console.log($('[name="val"]:checked').map(function() {return $(this).val()}).selector.join(','));
+        console.log($('select').val());*/
+
+        $('.panel').on('click', function(event) {
+            // console.log('panel');
+            console.log('panel');
+            console.log('p', event.isDefaultPrevented());
+            console.log('p', event.isPropagationStopped());
+        });
+
+        $('.content').on('click', function(event) {
+            console.log('content');
+            console.log('c', event.isDefaultPrevented());
+            console.log('c', event.isPropagationStopped());
+            event.stopPropagation();
+        });
+
+        // $('li').animate({
+        //     opacity: 0.25,
+        //     left:
+        //     '50px',
+        //     color:
+        //     '#abcdef',
+        //     rotateZ:
+        //     '45deg',
+        //     translate3d: '0,10px,0'
+        // }, 500, 'ease-out');
+
+        $('textarea').scrollTop(100);
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>click</title>
+</head>
+<body>
+	<ul>
+		<li><a href="##">项目1</a></li>
+		<li><a href="##">项目2</a></li>
+		<li><a href="##">项目3</a></li>
+		<li><a href="##">项目4</a></li>
+	</ul>
+	
+	<button type="button" class="btn btn-default add-li">添加一个子项目</button>
+	<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+	$(function() {
+		// ==== ==== ==== ==== ==== ==== ==== ====
+		var $ul = $('ul');
+		/**
+		 * 使用click添加事件
+		 * 1、只能在原有(页面加载后)的Dom节点上添加事件
+		 * 而在后续加入的Dom节点则不具有点击事件
+		 * 2、没有清除click的方法，很不人道
+		 */
+		$ul.find('li').click(function() {
+			alert($(this).text());
+		});
+
+		// 可在原来基础上再添加事件
+		$ul.find('li').click(function() {
+			alert('可在原来基础上再添加事件');
+		});
+
+		// 可以模拟触发事件
+		$ul.find('li').eq(0).click();
+
+		// ==== ==== ==== ==== ==== ==== ==== ====
+
+		// 添加一个子项目
+		$('.add-li').on('click', function() {
+			$ul.append('<li><a href="##">项目' + ($ul.find('li').length + 1) + '</a></li>')
+		});
+	});
+	</script>
+</body>
+</html>

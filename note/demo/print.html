@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <title></title>
+  <style></style>
+</head>
+<body>
+  <button id="ckstory" onclick="window.print();">测试打印</button><hr>
+  <button class="confirm">模拟确认框</button><br>
+  <button class="yes">YES</button>
+  <button class="no">NO</button>
+  <script src="../../work/version/jquery-1.8.3.js"></script>
+  <script>
+    function funConfirm(fun1, fun2) {
+      $('.yes').off('click').on('click', function() {
+        fun1();
+      });
+
+      $('.no').off('click').on('click', function() {
+        fun2();
+      });
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+      if (confirm('yes or no~!')) {
+        // yes
+      } else {
+        // no
+      }
+
+
+      funConfirm(function() {
+        // yes
+      }, function() {
+        // no
+      });
+  </script>
+</body>
+</html>

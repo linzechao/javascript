@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>Mustache实例</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+	<h1>Mustache实例</h1>
+	<table class="table table-bordered table-hover table-striped table-condensed text-center" id="table-demo"></table>
+</div>
+<script type="text/template" id="template-demo">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Sex</th>
+		</tr>
+	</thead>
+	<tbody>
+	{{#data}}
+		<tr>
+			<td>{{id}}</td>
+			<td>{{name}}</td>
+			<td>{{age}}</td>
+			<td>{{sex}}</td>
+		</tr>
+	{{/data}}
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="4">total: {{#info}}{{total}}{{/info}}</td>
+		</tr>
+	</tfoot>
+</script>
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/mustache.js/2.1.2/mustache.min.js"></script>
+<script>
+	$(function() {
+		// 请求ajax
+		$.ajax({
+			url: 'http://sc/note/service/php/request.php',
+			success: function(data) {
+				var data = JSON.parse(data);
+
+				// 获取数据成功后使用mustache模板引擎加载入数据
+				if (data.status) {
+					var $table = $('#table-demo');
+					var $template = $('#template-demo');
+					var sHtml = Mustache.render($template.html(), data);
+					$table.html(sHtml);
+				}
+			}
+		});
+	});
+</script>
+</body>
+</html>

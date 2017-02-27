@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>bootstrap</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    <br>
+	    <span class="caret"></span>
+	</div>
+	<div class="clearfix">
+	    <div class="pull-left">
+	    	class = pull-left
+	    </div>
+	    <div class="pull-right">
+	    	class = pull-right
+	    </div>
+    </div>
+	<hr>
+	<div class="center-block" style="width:400px;text-align:center;">class = center-block居中</div>
+	<div class="hidden">class="hidden"</div>
+	<div class="show">class="show"</div>
+	<div class="invisible">class="invisible"</div>
+	<div class="sr-only">class="sr-only"</div>
+	<a href="#href" class="sr-only sr-only-focusable">Skip to main content</a>
+	<h1 class="text-hide">Custom heading</h1>
+	<hr>
+	<p class="visible-xs-block">class="visible-xs-block"</p>
+	<p class="visible-sm-inline">class="visible-sm-inline"</p>
+	<p class="visible-md-inline-block">class="visible-md-inline-block"</p>
+	<p class="visible-lg-block">class="visible-lg-block"</p>
+
+	<span class="hidden-xs">class="hidden-xs"</span>
+	<span class="hidden-sm">class="hidden-sm"</span>
+	<span class="hidden-md">class="hidden-md"</span>
+	<span class="hidden-lg">class="hidden-lg"</span>
+
+	<hr>
+	<h4 class="container">Button</h4>
+	<blockquote>
+		<p>针对组件的注意事项</p>
+		<footer>虽然按钮类可以应用到'a'和'button'元素上，但是，导航和导航条组件只支持'button'元素。</footer>
+	</blockquote>
+
+	<blockquote class="blockquote-reverse">
+		<p>链接被作为按钮使用时的注意事项</p>
+		<footer>如果'a'元素被作为按钮使用 -- 并用于在当前页面触发某些功能 -- 而不是用于链接其他页面或链接当前页面中的其他部分，那么，务必为其设置'role="button"'属性。</footer>
+	</blockquote>
+
+	<button class="btn btn-primary btn-block" type="button">(块级元素)Block level button.</button>
+
+	<hr>
+	<div class="container">
+		<h4>下拉菜单</h4>
+		<div class="dropdown">
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMeun1" data-t
+			oggle="dropdown" aria-haspopup="true" aria="expanded="true"">下拉菜单 <span class="caret"></span></button>
+			<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1" style="display: block;">
+				<li class="dropdown-header">class="dropdown-header"</li>
+				<li class="active"><a href="javascript:;">class="active"</a></li>
+				<li class="disabled"><a href="javascript:;">class="disabled"</a></li>
+				<li class="divider" role="separator"></li>
+				<li><a href="javascript:;">选项4</a></li>
+				<li><a href="javascript:;">选项5</a></li>
+			</ul>
+		</div>
+
+		<div class="dropup">
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMeun2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">上拉菜单 <span class="caret"></span></button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				<li><a href="javascript:;">选项1</a></li>
+				<li><a href="javascript:;">选项2</a></li>
+				<li><a href="javascript:;">选项3</a></li>
+				<li><a href="javascript:;">选项4</a></li>
+				<li><a href="javascript:;">选项5</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<hr>
+	<div class="container">
+		<h4>按钮组</h4>
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
+			<div class="btn-group">
+				<button class="btn btn-primary" type="button">左</button>
+			</div>
+			<div class="btn-group">
+				<button class="btn btn-info" type="button">中</button>
+			</div>	
+			<div class="btn-group">
+				<button class="btn btn-success" type="button">右</button>
+			</div>
+		</div>
+
+		<div class="btn-group-vertical" role="group" aria-label="...">
+			<button class="btn btn-default" type="button">1</button>
+			<button class="btn btn-default" type="button">2</button>
+			<div class="btn-group" role="group">
+				<button class="btn btn-default dropdown-toggle">3 <span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="javascript:;">4</a></li>
+					<li><a href="javascript:;">5</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+	<div class="container">
+		<h4>Well内补</h4>
+		<div class="well well-sm">Look, I'm in a small well!</div>
+	</div>
+
+	<!--
+	<hr>
+	<div class="container">
+		<div class="embed-responsive embed-responsive-16by9">
+			<iframe src="http://www.baidu.com" frameborder="0" class="embed-responsive-item"></iframe>
+		</div>
+	</div>
+	 -->
+
+	 <hr>
+	 <div class="container">
+	 	<h4>面板</h4>
+	 	<div class="panel panel-info">
+	 		<div class="panel-heading">Panel heading without title</div>
+	 		<!-- <div class="panel-heading">
+	 			<h3 class="panel-title">Panel-title</h3>
+	 		</div> -->
+	 		<div class="panel-body">Basic panel example.</div>
+
+	 		<table class="table table-hover">
+	 			<thead>
+	 				<tr>
+	 					<th>#</th>
+	 					<th>First Name</th>
+	 					<th>Last Name</th>
+	 					<th>Username</th>
+	 				</tr>
+	 			</thead>
+	 			<tbody>
+	 				<tr>
+	 					<th scope="row">1</th>
+	 					<td>Mark</td>
+	 					<td>Otto</td>
+	 					<td>@mdo</td>
+	 				</tr>
+	 				<tr>
+	 					<th scope="row">2</th>
+	 					<td>Jacob</td>
+	 					<td>Thornton</td>
+	 					<td>@fat</td>
+	 				</tr>
+	 				<tr>
+	 					<th scope="row">3</th>
+	 					<td>Larry</td>
+	 					<td>the Bird</td>
+	 					<td>@twitter</td>
+	 				</tr>
+	 			</tbody>
+	 		</table>
+
+	 		<ul class="list-group">
+	 			<li class="list-group-item">Cras justo odio</li>
+	 			<li class="list-group-item">Dapibus ac facilisis in</li>
+	 			<li class="list-group-item">Morbi leo risus</li>
+	 			<li class="list-group-item">Porta ac consectetur ac</li>
+	 			<li class="list-group-item">Vestibulum at eros</li>
+	 		</ul>
+
+	 		<div class="panel-footer">panel footer</div>
+	 	</div>
+	 </div>
+
+	 <hr>
+	 <div class="container">
+	 	<h4>输入框组</h4>
+	 	<div class="input-group input-group-lg">
+	 		<span class="input-group-addon">￥</span>
+	 		<input type="text" class="form-control">
+	 		<span class="input-group-addon">~</span>
+	 		<input type="text" class="form-control">
+	 		<span class="input-group-addon">.00</span>
+	 	</div>
+
+	 	<div class="input-group">
+	 		<input type="text" class="form-control" placeholder="Search...">
+	 		<span class="input-group-btn">
+	 			<button class="btn btn-default" type="button">Go!</button>
+ 			</span>
+		</div>
+	 </div>
+
+	<hr>
+	<div class="container">
+		<ul class="nav nav-tabs nav-justified">
+			<li class="active" role="presentation"><a href="javascript:;">Home</a></li>
+			<li role="presentation"><a href="javascript:;">Profile</a></li>
+			<li role="presentation"><a href="javascript:;">Message</a></li>
+		</ul>
+
+		<ul class="nav nav-pills nav-justified">
+			<li class="active" role="presentation"><a href="javascript:;">Home</a></li>
+			<li role="presentation"><a href="javascript:;">Profile</a></li>
+			<li role="presentation"><a href="javascript:;">Message</a></li>
+		</ul>
+
+		<ul class="nav nav-pills nav-stacked">
+			<li class="active" role="presentation"><a href="javascript:;">Home</a></li>
+			<li role="presentation"><a href="javascript:;">Profile</a></li>
+			<li role="presentation"><a href="javascript:;">Message</a></li>
+		</ul>
+	</div>
+
+	<hr>
+	<div class="container">
+		<nav class="navbar navbar-default navbar-inverse">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">Brand</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+		        <li><a href="#">Link</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">Separated link</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">One more separated link</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		      <form class="navbar-form navbar-left" role="search">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Search">
+		        </div>
+		        <button type="submit" class="btn btn-default">Submit</button>
+		      </form>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#">Link</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li><a href="#">Action</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="#">Separated link</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</div>
+	
+	<hr>
+	<div class="navbar navbar-default container-fluid navbar-fixed-top">
+		<div class="container">
+			<a href="javascript:;" class="navbar-brand"><img title="yoeman" src="http://yeoman.io/assets/img/yeoman-02.eed5.png" alt="yoeman" style="width:24px;height:auto;"></a>
+			
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search...">
+				</div>
+				<button class="btn btn-default" type="submit">Submit</button>
+			</form>
+
+			<p class="navbar-text navbar-right">Signed in as <a href="javascript:;" class="navbar-link">Mark Otto</a></p>
+		</div>
+	</div>
+
+	<hr>
+	<ol class="breadcrumb container">
+		<li><a href="javascript:;">Home</a></li>
+		<li><a href="javascript:;">Library</a></li>
+		<li class="active">Data</li>
+	</ol>
+
+	<hr>
+	<nav class="container">
+		<ul class="pagination pagination-lg">
+			<li class="disabled"><a href="javascript:;" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+			</a></li>
+			<li class="active"><a href="javascript:;">1</a></li>
+			<li><a href="javascript:;">2</a></li>
+			<li><a href="javascript:;">3</a></li>
+			<li><a href="javascript:;">4</a></li>
+			<li><a href="javascript:;" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span>
+			</a></li>
+		</ul>
+	</nav>
+
+	<nav class="container">
+		<ul class="pager">
+			<li><a href="javascript:;">Previous</a></li>
+			<li><a href="javascript:;">Next</a></li>
+		</ul>
+	</nav>
+
+	<nav class="container">
+		<ul class="pager">
+			<li class="previous"><a href="javascript:;"><span aria-hidden="true">&larr;</span> Older</a></li>
+			<li class="next"><a href="javascript:;">Newer <span aria-hidden="true">&rarr;</span></a></li>
+		</ul>
+	</nav>
+
+	<hr>
+	<footer class="container navbar-fixed-bottom bg-success">
+		<p>c copyright 2015 super.</p>
+	</footer>
+</body>
+</html>

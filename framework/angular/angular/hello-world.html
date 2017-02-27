@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app>
+<head>
+	<meta charset="utf-8">
+	<title>Angular</title>
+	<script src="//cdn.bootcss.com/angular.js/1.4.1/angular.min.js"></script>
+</head>
+<body>
+	<div class="content">
+		Your Name: <input type="text" placeholder="您的名字" ng-model="Angular">
+		<h6>Hello, {{Angular || 'Mr. Super'}}!</h6>
+	</div>
+</body>
+</html>

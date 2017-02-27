@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+</head>
+<body>
+	<h4>Angular Form</h4>
+	<div ng-app="formApp" ng-controller="formController">
+		<form action="javascipt:;">
+			<label>Name: <input type="text" ng-model="user.name"></label>
+			<br>
+			<label>Age: <input type="text" ng-model="user.age"></label>
+			<br>
+			<button type="button" ng-click="reset()">Reset</button>
+		</form>
+
+		<p>form = {{user}}</p>
+		<p>master = {{master}}</p>
+
+		<hr>
+
+		<h4>angular 验证 <small>HTML 表单属性 novalidate 用于禁用浏览器默认的验证。</small></h4>
+		<form action="javascript:;" ng-controller="validateCtrl" name="formName" novalidate>
+			<p>
+				<label>
+					<span>user: </span>
+					<input type="text" name="user" ng-model="user" required>
+					<span style="color: red" ng-show="formName.user.$dirty && formName.user.$invalid">
+						<span ng-show="formName.user.$error.required">user is required.</span>
+					</span>
+				</label>
+			</p>
+
+			<p>
+				<label>
+					<span>email: </span>
+					<input type="text" name="email" ng-model="email" required>
+					<span style="color: red" ng-show="formName.email.$dirty && formName.email.$invalid">
+						<span ng-show="formName.email.$error.required">email is required.</span>
+					</span>
+				</label>
+			</p>
+
+			<p>
+				<label>
+					<input type="submit" ng-disabled="formName.user.$dirty 
+						&& formName.user.$invalid || formName.email.$dirty
+						&& formName.email.$invalid">
+				</label>
+			</p>
+		</form>
+	</div>
+
+	<script src="//cdn.bootcss.com/angular.js/1.2.28/angular.min.js"></script>
+	<script>
+	var formApp = angular.module('formApp', []);
+
+	formApp.controller('validateCtrl', function($scope) {
+		$scope.user = 'Mr. Super';
+		$scope.email = 'linzechao44@163.com';
+	});
+
+	formApp.controller('formController', function($scope) {
+		$scope.master = {
+			name: 'Super',
+			age: '24'
+		};
+
+		$scope.reset = function() {
+			$scope.user = angular.copy($scope.master); // 清除引用进行复制
+		};
+
+		$scope.reset();
+	});
+	</script>
+</body>
+</html>

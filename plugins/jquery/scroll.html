@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <style>
+        * {margin:0;padding:0;}
+        #main, #main .out {width:1920px;height:1000px;overflow:hidden;}
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="out"><img src="../show/0.jpg"></div>
+    <div class="out"><img src="../show/1.jpg"></div>
+    <div class="out"><img src="../show/2.jpg"></div>
+    <div class="out"><img src="../show/3.jpg"></div>
+    <div class="out"><img src="../show/4.jpg"></div>
+    <div class="out"><img src="../show/5.jpg"></div>
+    <div class="out"><img src="../show/6.jpg"></div>
+    <div class="out"><img src="../show/7.jpg"></div>
+</div>
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $(function(){
+        var int_win_height = $(window).height,
+            int_win_width = window.screen.width;
+
+        var obj_main = $("#main");
+        var obj_out = obj_main.find(".out");
+        /*obj_main.height(int_win_height).width(int_win_width);
+        obj_out.height(int_win_height).width(int_win_width);*/
+        //console.log(int_win_height);
+
+
+
+
+
+
+        var orient = 0, flag = false;
+        var obj_out_0 = obj_out.eq(0);
+        $(window).scroll(function(){
+            if (flag) return;
+            flag = true;
+            var new_orient = $(this).scrollTop();
+            if (new_orient - orient > 0) {
+                // 向下
+                obj_out_0.animate({"marginTop" : parseInt(obj_out_0.css("marginTop")) - obj_out_0.height()}, function() {flag = false;});
+            } if (new_orient - orient < 0) {
+                // 向上
+                obj_out_0.animate({"marginTop" : parseInt(obj_out_0.css("marginTop")) + obj_out_0.height()}, function() {flag = false;});
+            }
+            orient = new_orient;
+        });
+    });
+</script>
+</body>
+</html>

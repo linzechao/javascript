@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>index2</title>
+</head>
+<body>
+	<div ng-app="">
+		<h4>表达式：</h4>
+		<p>我的第一个表达式： {{ 5 + 5 }}</p>
+		
+		<hr>
+
+		<h4>数值操作表达式：</h4>
+		<div ng-init="quantity=1; cost=5; name='Super'; say='Hello'">
+			<p>总价：{{quantity * cost}}</p>
+			<span>总价：<span ng-bind="{{quantity * cost}}" data-sum="{{quantity * cost}}"></span></span>
+		</div>
+
+		<hr>
+
+		<h4>绑定字符串数据</h4>
+		<div ng-init="name='Super'; say='Hello'">
+			<p>表达式：<span>{{say + ', ' + name}}</span></p>
+			<p>ng-bind：<span ng-bind="say + ', ' + name"></span></p>
+		</div>
+
+		<hr>
+
+		<h4>对象、数组表达式</h4>
+		<div ng-app="" ng-init="person={say: 'hi', name: 'super'}; course=['html', 'css', 'javascript']">
+			<p>{{person.say + ', ' + person.name + '!'}}</p>
+			<p ng-bind="person.say + ', ' + person.name + '!'">Default..</p>
+			<ul>
+				<li ng-bind="course[0]"></li>
+				<li ng-bind="course[1]"></li>
+				<li ng-bind="course[2]"></li>
+			</ul>
+
+			<ol>
+				<li>{{course[0]}}</li>
+				<li>{{course[1]}}</li>
+				<li>{{course[2]}}</li>
+			</ol>
+		</div>
+	</div>
+	<script src="//cdn.bootcss.com/angular.js/1.4.1/angular.min.js"></script>
+</body>
+</html>

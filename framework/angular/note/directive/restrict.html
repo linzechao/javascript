@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans" ng-app="direcApp">
+<head>
+    <meta charset="utf-8">
+    <title>Directive</title>
+    <style>
+        body {margin: 0;}
+        p {
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="main" ng-controller="direcCtre">
+        <!-- directive:hello -->
+        <div></div>
+        <hello></hello>
+        <div hello></div>
+        <span class="hello"></span>
+    </div>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            var direcApp = angular.module('direcApp', []);
+
+            direcApp.controller('direcCtre', function($scope) {
+                $scope.loadData = function() {
+                    console.info('加载中...');
+                };
+            });
+
+            direcApp.directive('hello', function() {
+                return {
+                    // 默认A
+                    restrict: 'AEMC',
+
+                    // true时替换掉指定ng-transclude位置
+                    transclude: true,
+                    // template: '<p>Hello</p><div ng-transclude></div>',
+                    template: '<p>Hello</p>',
+
+                    // true：替换掉父节点
+                    // false: 替换掉子节点
+                    replace: true,
+
+                    // 执行一次
+                    compile: function() {
+                        // 覆盖掉link函数
+                        return function() {
+
+                        }
+                    },
+
+                    // 每次覆盖渲染都会执行
+                    // 一般在link里面做一些DOM的操作
+                    link: function(scope, element, attr) {
+                        element.bind('click', function() {
+                            // scope.loadData();
+                            // 或者
+                            scope.$apply('loadData()');
+                        });
+                    }
+                };
+            });
+        }());
+    </script>
+</body>
+</html>

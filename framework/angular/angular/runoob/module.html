@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+</head>
+<body>
+	<h4>Angular module</h4>
+	<!-- <div ng-app="firstApp">
+		<div ng-controller="firstCtrl">
+			{{firstName + ' is ' + firstAge}}
+		</div>
+
+		<div ng-controller="secondCtrl">
+			{{secondName + ' is ' + secondAge}}
+		</div>
+	</div> -->
+
+	<div ng-app="secondApp">
+		<div ng-controller="firstCtrl">
+			{{firstName + ' is ' + firstAge}}	
+		</div>
+
+		<div ng-controller="secondCtrl">
+			{{secondName + ' is ' + secondAge}}
+		</div>
+	</div>
+
+	<script src="//cdn.bootcss.com/angular.js/1.2.28/angular.min.js"></script>
+	<script>
+	var firstApp = angular.module('firstApp', []);
+	var secondApp = angular.module('secondApp', []);
+
+	firstApp.controller('firstCtrl', function($scope) {
+		$scope.firstName = 'Super';
+		$scope.firstAge = '1';
+	});
+
+	firstApp.controller('secondCtrl', function($scope) {
+		$scope.secondName = 'Chao';
+		$scope.secondAge = '4';
+	});
+
+	secondApp.controller('firstCtrl', function($scope) {
+		$scope.firstName = 'Mr. Super';
+		$scope.firstAge = '20';
+	});
+
+	secondApp.controller('secondCtrl', function($scope) {
+		$scope.secondName = 'Mr. Chao';
+		$scope.secondAge = '40';
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>Hello, Backbone!</title>
+</head>
+<body>
+	<h6>Hello, Backbone!</h6>
+	<div></div>
+	<script src="//cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script src="//cdn.bootcss.com/backbone.js/1.2.1/backbone-min.js"></script>
+	<script>
+		(function() {
+			console.info('Hello, Backbone!');
+
+			// Events(事件)
+			var object = {};
+			_.extend(object, Backbone.Events);
+
+			object.on('alert', function(name) {
+				alert('Hello, ' + name);
+			});
+			// object.trigger('alert', 'Mr. Super!'); // 调用
+
+			// 
+		}());
+	</script>
+</body>
+</html>

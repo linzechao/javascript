@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>DEMO 06</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- React核心库 -->
+    <script src="../bower_components/react/react.min.js"></script>
+
+    <!-- React提供与DOM相关的功能 -->
+    <script src="../bower_components/react/react-dom.min.js"></script>
+
+    <!-- 解析JSX语法 -->
+    <script src="../bower_components/babel/browser.min.js"></script>
+</head>
+
+<body class="container">
+    <header id="ajax"></header>
+
+    <script type="text/babel">
+        var UserGist = React.createClass({
+            getInitialState: function() {
+                return {
+                    username: '',
+                    lastGistUrl: ''
+                };
+            },
+
+            componentDidMount: function() {
+                $.get(this.props.source, function(result) {
+
+                    var lastGist = JSON.parse(result);
+
+                    if (this.isMounted()) {
+                        this.setState({
+                            username: lastGist.data[0].name,
+                            lastGistUrl: lastGist.data[0].sex
+                        });
+                    }
+                }.bind(this));
+            },
+
+            render: function() {
+                return (
+                    <div>
+                        {this.state.username} is last gist is <a href={this.state.lastGistUrl}>here</a>.
+                    </div>
+                );
+            }
+        });
+
+        ReactDOM.render(
+            <UserGist source="http://sc/git/php/note/request.php" />,
+
+            document.getElementById('ajax')
+        );
+    </script>
+</body>
+</html>

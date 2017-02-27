@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans" ng-app="directiveApp">
+<head>
+    <title>Angular基础</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalabel=no">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="img/favicon.ico">
+</head>
+<body class="container" ng-controller="ctrl">
+    <h2>Hello, {{name || 'Super'}}. <small ng-bind="name"></small></h2>
+    <div>
+        <form action="javascript:;">
+            <div class="form-group">
+                <input class="form-control" type="text" ng-model="name" placeholder="name">
+            </div>
+            <p class="hlep-block" ng-bind="time"></p>
+        </form>
+    </div>
+    
+    <hr>
+    <h2 ng-init="long = 2; width = 2">四边形的面积：</h2>
+    <div>
+        <form action="javascript:;">
+            <div class="form-group">
+                <label>长：</label>
+                <input class="form-control" type="text" ng-model="long">
+            </div>
+            
+            <div class="form-group">
+                <label>宽：</label>
+                <input class="form-control" type="text" ng-model="width">
+            </div>
+            
+            <p class="help-bolck text-warning">“ng-bing”不能绑定Angular表达式</p>
+            <p class="text-danger form-control-static" ng-bing="long * width">Result: {{long * width}}</p>
+        </form>
+    </div>
+
+    <hr>
+    <h2>指令ng-app、ng-init、ng-modal、ng-repeat</h2>
+    <div>
+        <input class="form-control" name="test" type="text" ng-model="test">
+        <ul ng-init="course = [{name: 'Node'}, {name: 'JavaScript'}, {name: 'H5'}, {name: 'C3'}]">
+            <!-- 过滤器排序-->
+            <!-- 通过输入框筛选-->
+            <li ng-repeat="c in course | filter: test | orderBy: 'name'">{{c.name}}</li>
+        </ul>
+    </div>
+
+    <hr>
+    <h2>自定义指令(Directive·自定义标签)</h2>
+    <div>
+        <directive-tag></directive-tag>
+        <div runoob-directive></div>
+        <div class="runoob-directive"></div>
+        <!-- 指令: runoob-directive -->
+    </div>
+
+    <hr>
+    <h2>表单验证</h2>
+    <div>
+        <form action="javascript:;" name="testForm">
+            <div class="form-group" ng-init="myName = 'Super'">
+                <label for="name">Name</label>
+                <input id="name" class="form-control" name="name" type="text" ng-model="myName">
+                <span class="help-block">
+                    状态：
+                    {{testForm.name.$valid}}
+                    {{testForm.name.$dirty}}
+                    {{testForm.name.$touched}}
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" class="form-control" name="email" type="email" ng-model="text">
+                <span class="help-block" ng-show="testForm.email.$error.email"><i class="text-danger" required>不是一个合法的邮箱地址</i></span>
+            </div>
+        </form>
+    </div>
+
+    <hr>
+    <h2>过滤器</h2>
+    <div ng-controller="filterExample">
+        <input class="form-control" name="remark" type="text" ng-model="remark">
+        <p class="help-block">大写：<i class="text-success" ng-bind="remark | uppercase"></i></p>
+        <p class="help-block">小写：<i class="text-success" ng-bind="remark | lowercase"></i></p>
+        <p class="help-block">货币：<i class="text-success" ng-bind="remark | currency"></i></p>
+    </div>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        var app = angular.module('directiveApp', []);
+
+        app.controller('ctrl', function ($scope, $timeout, $interval) {
+            // 哪里来的双向绑定
+            $scope.name = 'Super';
+            setTimeout(function() {
+                console.log($scope.name);
+                $scope.name = 'Chao';
+            }, 5000);
+
+            // 使用Angular的timeout才能实现数据双向影响
+            // interval应该也一样，我猜
+            $timeout(function() {
+                console.log($scope.name);
+                $scope.name = 'Chao';
+            }, 5000);
+
+            $interval(function() {
+                $scope.time = new Date().toLocaleTimeString();
+            }, 1000);
+        });
+
+        /*
+            E 只限元素名使用 element
+            A 只限属性使用 attribute
+            C 只限类名使用 class
+            M 只限注释使用
+        */
+        app.directive('directiveTag', function() {
+            return {
+                restrict: 'M',
+                template: '<p class="text-info">自定义标签abc</p>'
+            };
+        });
+
+        // 过滤器
+        app.controller('filterExample', function($scope) {
+            
+        });
+    </script>
+</body>
+</html>

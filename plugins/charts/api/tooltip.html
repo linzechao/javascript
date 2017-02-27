@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <style>
+        body {margin: 0;}
+
+        #ec {
+            width: 800px;
+            height: 400px;
+            margin: 40px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="ec"></div>
+    <script src="../bower_components/echarts/dist/echarts.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            // 图形参数
+            var ecOpt = {
+                title: {
+                    // 主标题
+                    text: '主标题'
+                },
+                legend: {
+                    data:['邮件营销','联盟广告','视频广告','搜索引擎']
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['周一','周二','周三','周四','周五','周六','周日']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+
+                tooltip: {
+                    show: true,
+                    showContent: true,
+                    // 触发类型
+                    // item散点图、饼图、无类目中使用
+                    // axis柱状图、折线图中使用
+                    trigger: 'axis',
+                    // 触发条件
+                    // 默认mousemove
+                    // triggerOn: 'click',
+                    // 是否永远显示提示框
+                    alwaysShowContent: true,
+                    // 延时显示/隐藏
+                    // showDelay: 1000,
+                    // 在alwaysShowContent = true;时无效
+                    // hideDelay: 1000,
+                    enterable: true,
+                    // inside/top/right/bottom/left在trigger=item时才有效
+                    // position: ['20%', '20%'],
+                    // 提示框跟随鼠标的动画时间
+                    transitionDuration: 1,
+                    // 格式
+                    /**
+                     * {a}: 系列名
+                     * {b}: 数据名
+                     * {c}: 数据值
+                     * {d}: 
+                     * {e}
+                     */
+                    formatter: '{a0}, {b0}, {c0}<br>{a1}, {b1}, {c1}<br>{a2}, {b2}, {c2}<br>{a3}, {b3}, {c3}',
+
+                    backgroundColor: 'rgba(0, 0, 0, .3)',
+                    borderColor: '#000',
+                    borderWidth: 1,
+                    padding: 30,
+                    axisPointer: {
+                        type: 'shadow',
+                        // axis: 'angle',
+                        animation: false,
+                        
+                    }
+                },
+                series: [
+                    {
+                        name:'邮件营销',
+                        areaStyle: {normal: {}},
+                        type:'line',
+                        stack: '总量',
+                        data:[120, 132, 101, 134, 90, 230, 210]
+                    },
+                    {
+                        name:'联盟广告',
+                        areaStyle: {normal: {}},
+                        type:'line',
+                        stack: '总量',
+                        data:[220, 182, 191, 234, 290, 330, 310]
+                    },
+                    {
+                        name:'视频广告',
+                        areaStyle: {normal: {}},
+                        type:'line',
+                        stack: '总量',
+                        data:[150, 232, 201, 154, 190, 330, 410]
+                    },
+                    {
+                        name:'搜索引擎',
+                        areaStyle: {normal: {}},
+                        type:'line',
+                        stack: '总量',
+                        data:[820, 932, 901, 934, 1290, 1330, 1320]
+                    }
+                ]
+            };
+
+            var ecDom = document.getElementById('ec');
+            var ec = echarts.init(ecDom);
+            ec.setOption(ecOpt);
+        }());
+    </script>
+</body>
+</html>

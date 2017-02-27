@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <style>
+        body {margin: 0;}
+
+        #ec {
+            width: 800px;
+            height: 400px;
+            margin: 40px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="ec"></div>
+    <script src="../bower_components/echarts/dist/echarts.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            // 图形参数
+            var ecOpt = {
+                title: {
+                    // 主标题
+                    text: '主标题',
+                    // 会创建多个Canvas出来
+                    // 少用
+                    // zlevel: 1,
+                    z: 0
+                },
+                // 图例组件
+                legend: {
+                    // 会创建多个Canvas出来
+                    // 少用
+                    // zlevel: 0,
+                    z: 1,
+                    left: 70,
+                    top: 6,
+                    width: 400,
+                    padding: 4,
+                    itemGap: 8,
+                    formatter: 'Super {name}',
+                    formatter: function(name) {
+                        return 'Chao' + name;
+                    },
+                    // 选择模式
+                    // selectedMode: false,
+                    // selectedMode: 'single',
+                    selectedMode: true,
+                    selected: {
+                        // false不选中
+                        '邮件营销': false,
+                        '直接访问': false
+                    },
+
+                    // 方向
+                    // orient: 'vertical',
+                    data:[{
+                        name: '邮件营销',
+                        icon: 'circle',
+                        textStyle: {
+                            color: 'blue'
+                        }
+                    },'联盟广告','视频广告','直接访问','搜索引擎']
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['周一','周二','周三','周四','周五','周六','周日']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                series: [
+                    {
+                        name:'邮件营销',
+                        type:'line',
+                        stack: '总量',
+                        data:[120, 132, 101, 134, 90, 230, 210]
+                    },
+                    {
+                        name:'联盟广告',
+                        type:'line',
+                        stack: '总量',
+                        data:[220, 182, 191, 234, 290, 330, 310]
+                    },
+                    {
+                        name:'视频广告',
+                        type:'line',
+                        stack: '总量',
+                        data:[150, 232, 201, 154, 190, 330, 410]
+                    },
+                    {
+                        name:'直接访问',
+                        type:'line',
+                        stack: '总量',
+                        data:[320, 332, 301, 334, 390, 330, 320]
+                    },
+                    {
+                        name:'搜索引擎',
+                        type:'line',
+                        stack: '总量',
+                        data:[820, 932, 901, 934, 1290, 1330, 1320]
+                    }
+                ]
+            };
+
+            var ecDom = document.getElementById('ec');
+            var ec = echarts.init(ecDom);
+            ec.setOption(ecOpt);
+        }());
+    </script>
+</body>
+</html>

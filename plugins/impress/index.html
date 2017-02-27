@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>Impress</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.impress-not-supported {display: none;}
+
+		body {
+			background: #eee;
+		}
+
+		.step {
+			width: 800px;
+			height: 800px;
+			line-height: 800px;
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			background: #f8f8f8;
+			text-align: center;
+			font-size: 100px;
+			color: #66c;
+			text-shadow: 10px 0 #6cf, 0 5px #69f, 0 0 #66f;
+		}
+	</style>
+</head>
+<body>
+	<div class="impress-not-supported">
+        <div class="fallback-message">
+        	<h4>Hi, low!</h4>
+            <p>你的浏览器<b>不支持</b> impress.js, 所以当前展示的是简化版。</p>
+            <p>为了获得更好的体验，请使用最新的 <b>Chrome</b>, <b>Safari</b> 或者 <b>Firefox</b> 浏览器。</p>
+        </div>
+    </div>
+
+	<div id="impress">
+		<div class="step title1" data-x="0" data-y="0">This is slide 1</div>
+
+		<div class="step title2" data-x="1000" data-y="0">This is slide 2</div>
+
+		<div class="step title3" data-x="2000" data-y="-1000">This is slide 3</div>
+
+		<div class="step" data-x="3000" data-y="-40" data-scale=".6">This is slide 4</div>
+
+		<div class="step" data-x="-2000" data-y="-4000" data-rotate="80">This is slide 5</div>
+
+		<div class="step" data-x="-3000" data-y="0" data-rotate-x="30" data-rotate-y="30" data-rotate-z="90" data-scale="4">This is slide 6</div>
+
+		<!-- 全局预览(好像冇什么卵用)-->
+		<!-- darren code -->
+        <!-- <div id="overview" class="step" data-x="-200" data-y="-500" data-scale="3"></div> -->
+	</div>
+	<script src="//cdn.bootcss.com/impress.js/0.5.3/impress.min.js"></script>
+	<script>impress().init();</script>
+</body>
+</html>

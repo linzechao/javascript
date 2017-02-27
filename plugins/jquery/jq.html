@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <style>
+        * {margin: 0;padding: 0;text-align:center;}
+        .main {height:4000px;margin-top:20px;font-family:'微软雅黑';}
+        .top {width:100%;margin:500px 0 0 0;height:30px;line-height:30px;color:#fff;text-align:center;background:#abcdef;
+            box-shadow:0 2px 2px #888, 0 2px 2px #888 inset;}
+      /*  red{color:red;}*/
+        :disabled{cursor:no-drop;}
+
+        #pos {
+            position: relative;
+        }
+
+        .out {height:5px;background:#eee;}
+        .in {height:5px;width:10%;background:#f00;}
+    </style>
+    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="main">
+    <!--<div class="top">固定</div>-->
+
+    <!--<em data-id="emIde" data-class="emCls">测试data-id等属性</em>
+
+    <div>测试JQuery.has</div>
+
+
+    <div><p>Hello</p></div><div class="selected"><p>Hello Again</p></div>
+
+    <em data="24px,blue">24/蓝色</em>
+    <em data="30px,green">30/绿色</em>
+    <red>红色</red>
+
+
+    <div class="parent">
+        <strong>strong</strong>
+        <em>em</em>
+        <a>a</a>
+        <span>span</span>
+        <p>p</p>
+        <small>small</small>
+    </div>
+
+    <div class="pt">
+        <strong>pt strong</strong>
+        <em>pt em</em>
+    </div>
+
+    <input value='super' type='text'>
+    <input value='push' type='submit' disabled>-->
+    <!--<h1>Hello, World!</h1>
+    <input type='text' value='123'><button disabled>提交</button>-->
+
+    <div id="pos">
+        <p>position</p>
+    </div>
+
+    <div class="out">
+        <div class="in"></div>
+    </div>
+</div>
+
+
+<script>
+    $(function() {
+        console.log($('#pos').css('position'));
+        $('#pos').on('click', function(e) {
+            console.log('#pos');
+        });
+        $('#pos').on('click', 'p', function(e) {
+            console.log('#pos p');
+            return false;
+        });
+
+
+    });
+    /*$(function() {
+        //$('small').data('name', 'Super');
+        var $input = $('input');
+        var strOldVal = $input.val();
+        var ok = 1;
+        $input.on('keyup', function() {
+            var $submitBtn = $('button');
+            console.log(strOldVal, $input.val(), strOldVal == $input.val());
+            if (strOldVal == $input.val())
+                $submitBtn.prop('disabled', true),
+                ok = 1;
+            else
+                $submitBtn.prop('disabled', false),
+                ok = 0;
+        }).on('change', function() {
+            if (ok) alert('ok');
+        });
+    });*/
+
+
+
+
+
+
+
+
+   /* $('input[type=text]').on('change', function() {
+        console.log($(this).val());
+        $('input[type=submit]').prop('disabled', false);
+    });*/
+
+    /*$(function() {
+        var myObject = {
+            a: {
+                one: 1,
+                two: 2,
+                three: 3
+            },
+            b: [1,2,3]
+        };
+        $(".main").text($.param(myObject));
+    });*/
+
+    $(function(){
+        /*$('.parent em , .pt em').each(function() {
+            $(this).css('background', '#abcdef');
+        });*/
+
+        //$('em').css('background', '#abcdef');
+
+        /* var arrChildren = $(".parent").children();
+        console.log(arrChildren.eq(0).html());
+        console.log(arrChildren.eq(-1).html());
+
+
+
+
+        console.log(arrChildren.first().html());
+        console.log(arrChildren.last().html());*/
+
+
+
+
+        /*$(window).scroll(function(){
+
+            // 方法一：
+            var windowTop = $(this).scrollTop();
+            //var divTop = $(".top").offset().top;
+            var top = windowTop - 500;
+            *//*if (top >= 0) {
+                $(".top").offset({top:windowTop});
+            } else {
+                $(".top").offset({top:500});
+            }
+            console.log(top, windowTop, $(".top").offset().top);*//*
+            //if(top > 100) {alert(top);}
+
+
+            //方法二：
+            if (windowTop > 500) {
+                $(".top").css({position:"fixed", top:-500});
+            } else {
+                $(".top").css({position:"static"});
+            }
+        });*/
+
+        /*var emData = $("em").data();
+        console.log(emData);
+
+        var objMain = $(".main");
+        console.log(objMain.has("div").length);
+         console.log(objMain.is("div"));
+
+        var pParent = $("p").parent(".selected");
+        var pParents = $("p").parents();
+        console.log(pParent.is(pParents));*/
+
+        /*$("em").each(function(index, item) {
+            if (!$(item).attr("data")) return;
+            var data = $(item).attr("data").split(",");
+            $(item).css({
+                fontSize:data[0],
+                color:data[1]
+            });
+        });*/
+
+
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>socket</title>
+</head>
+<body>
+    <h3>Hello, facher!</h3>
+    <cite>您说：</cite>
+    <p id="msg"></p>
+    <script>
+        window.addEventListener("message", function (event) {
+            msg.innerText = msg.innerText + event.data;
+        }, false);
+    </script>
+</body>
+</html>

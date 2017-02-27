@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans" ng-app="httpApp">
+<head>
+    <meta charset="utf-8">
+    <title>HTTP</title>
+</head>
+<body ng-controller="httpCtrl">
+    <ul>
+        <li ng-repeat="user in users">
+            {{user.name}}: {{user.age}}
+        </li>
+    </ul>
+
+
+    <script src="../../bower_components/angular/angular.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            var app = angular.module('httpApp', []);
+
+            app.controller('httpCtrl', function($scope, $http) {
+
+                $http({
+                    method: 'get',
+                    url: 'data.json'
+                }).success(function(data, status, headers, config) {
+
+                    console.log('success');
+                    console.log(data);
+                    $scope.users = data;
+                }).error(function(data, status, headers, config) {
+
+                    console.log('error');
+                });
+
+
+            });
+        }());
+    </script>
+</body>
+</html>

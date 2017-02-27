@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <title>RegExp</title>
+</head>
+
+<body>
+    <script>
+    p(/^.$/.test('4'));
+    p(/^.+$/.test(''));
+    p(/^.*$/.test(''));
+
+    p(/[Rr]eg[Ee]xp/.test('regexp'));
+    p(/[Rr]eg[Ee]xp/.test('regExp'));
+    p(/[Rr]eg[Ee]xp/.test('RegExp'));
+    p(/[Rr]eg[Ee]xp/.test('Regexp'));
+
+    p(/[:alnum:]/.test('A'));
+
+
+    p(/a.*b/.exec('aab__'));
+
+    p('super superman superchao mrsuper hisuper lovesuperman'.replace(/\bsuper\b/g, 's'));
+    p('super superman superchao mrsuper hisuper lovesuperman'.replace(/\bsuper/g, 's'));
+    p('super superman superchao mrsuper hisuper lovesuperman'.replace(/super\b/g, 's'));
+
+
+    var uppercase = 'Super! Chao?';
+    var lowercase = 'chao? super?';
+
+    p(uppercase.replace(/(super)!*.*(chao)\?*/i, '\l$1\E'));
+
+    var ip = /^(((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5]))\.){3}((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5]))$/;
+
+    p(ip.test('255.255.255.255'));
+    p(ip.test('0.0.0.0'));
+    p(ip.test('1.1.1.1'));
+    p(ip.test('127.0.0.1'));
+    p(ip.test('127.0.0.100'));
+    p(ip.test('127.24.85.100'));
+    p(ip.test('256.24.85.100'));
+    p(ip.test('256.24.85.-10'));
+    p(ip.test('127.24.85.1000'));
+    p(ip.test('127.256.0.100'));
+
+
+    var url = /^https?:\/\/[\-\w.]+(:\d+)?(\/([\-\w/]*(\?\S+)?)?)?$/i;
+
+    p(url.test('baidu.com'));
+    p(url.test('http://google.com'));
+    p(url.test('https://github.com'));
+    p(url.test('https://github.com:9090'));
+    p(url.test('https://github.com:8080/'));
+    p(url.test('https://github.com:8080/obj'));
+    p(url.test('https://github.com:8080/abac/jj577'));
+
+
+    var email = /^(\w+\.)*\w+@(\w+\.)+[A-Zz-z]+$/i;
+
+    p(email.test('linzechao44@163.com'));
+    p(email.test('631924081@qq.com'));
+    p(email.test('zechao.lin@gmail.com'));
+    p(email.test('zechao.lin#gmail.com'));
+    p(email.test('zechao.lin@gmail.super'));
+    p(email.test('zechao.lin@gmail.io'));
+    p(email.test('@gmail.abc'));
+
+
+    var html = /<([\w]+[1-6]?).*>.*<\1>/;
+    var note = /^<!--.*?--!>$/m;
+
+    c('<!--abac--> <!----> <!-- hello --> <!-- \r\n -->'.match(note));
+
+
+    function p(txt) {
+        document.write(txt + '<br>');
+    }
+
+    function c(txt) {
+        console.info(txt);
+    }
+    </script>
+</body>
+
+</html>

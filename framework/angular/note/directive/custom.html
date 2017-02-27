@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans" ng-app="customApp">
+<head>
+    <meta charset="utf-8">
+    <title>Directive</title>
+    <style>
+        body {margin: 0;}
+        p {
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="main" ng-controller="customCtre">
+        <!-- directive:hello -->
+        <div></div>
+        <hello></hello>
+        <div hello></div>
+        <span class="hello"></span>
+    </div>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            var customApp = angular.module('customApp', []);
+
+            customApp.controller('customCtre', function($scope) {
+                
+            });
+            
+        }());
+    </script>
+</body>
+</html>

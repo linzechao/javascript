@@ -1,0 +1,22 @@
+{
+  "name": "charts",
+  "homepage": "https://github.com/linzechao/charts",
+  "authors": [
+    "Mr. Super <linzechao44@163.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "^3.5.17",
+    "highcharts": "^4.2.5",
+    "echarts": "^3.1.10"
+  }
+}

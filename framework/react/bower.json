@@ -1,0 +1,27 @@
+{
+  "name": "react",
+  "homepage": "https://github.com/linzechao/react",
+  "authors": [
+    "Mr. Super <linzechao44@163.com>"
+  ],
+  "description": "react",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "react",
+    "js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.1.0",
+    "babel": "*",
+    "bootstrap": "^3.3.6"
+  }
+}

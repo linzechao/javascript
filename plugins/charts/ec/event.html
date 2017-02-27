@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #one,
+        #two {
+            display: inline-block;
+            width: 50%;
+            height: 180px;
+            margin-top: 40px;
+        }
+
+        #ec {
+            width: 600px;
+            height: 50%;
+            margin: 40px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="one"></div><div id="two"></div>
+    <div id="ec"></div>
+    <script src="../bower_components/echarts/dist/echarts.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            // 图形参数
+            var oneOpt = {
+                title: {
+                    text: '世界人口总量',
+                    subtext: '数据来自网络'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['2011年', '2012年']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    boundaryGap: [0, 0.01]
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['巴西','印尼','美国','印度','中国','世界人口(万)']
+                },
+                series: [
+                    {
+                        name: '2011年',
+                        type: 'bar',
+                        data: [18203, 23489, 29034, 104970, 131744, 630230]
+                    },
+                    {
+                        name: '2012年',
+                        type: 'bar',
+                        data: [19325, 23438, 31000, 121594, 134141, 681807]
+                    }
+                ]
+            },
+
+            twoOpt = {
+                title: {
+                    text: '某站点用户访问来源',
+                    subtext: '纯属虚构',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius : '55%',
+                        center: ['50%', '60%'],
+                        data:[
+                            {value:335, name:'直接访问'},
+                            {value:310, name:'邮件营销'},
+                            {value:234, name:'联盟广告'},
+                            {value:135, name:'视频广告'},
+                            {value:1548, name:'搜索引擎'}
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+
+            // DOM节点
+            var oneDOM = document.getElementById('one');
+                
+            var one = echarts.init(oneDOM);
+            one.setOption(twoOpt);
+
+            // 事件
+            /*one.on('click', function() {
+                console.log('click: ');
+            });*/
+
+            /*one.on('dblclick', function() {
+                console.log('dblclick');
+            });
+
+            // one.on('mousedown', function() {
+            //     console.log('mousedown');
+            // });
+
+            one.on('mouseup', function(param) {
+                // console.log('mouseup');
+                console.log(param);
+            });
+
+            // one.on('mouseover', function() {
+            //     console.log('mouseover');
+            // });
+
+            // one.on('mouseout', function() {
+            //     console.log('mouseout');
+            // });
+
+            one.on('globalout', function() {
+                console.log('globalout');
+            });*/
+
+            // 切换图例
+            one.on('legendselectchanged', function() {
+                console.info('legendselectchanged');
+            });
+            one.on('legendselected', function() {
+                console.info('legendselected');
+            });
+        }());
+    </script>
+</body>
+</html>

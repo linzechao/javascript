@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mustache</title>
+    <meta charset="utf-8">
+    <style>
+        table, th, td {border-collapse:collapse;border:1px solid #000;}
+        th, td {padding:10px 20px;}
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <table id="table0">
+        <tbody></tbody>
+    </table>
+
+
+    <table id="table1">
+        <tbody></tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/template" id="template0">
+        <thead><tr><th>姓名</th><th>年龄</th><th>性别</th><th>职位</th></tr></thead>
+        <tbody>
+            {{#result}}
+                <tr><td>{{name}}</td><td>{{age}}</td><td>{{sex}}</td><td>{{job}}</td></tr>
+            {{/result}}
+                <tr><td colspan="4">总人数：{{sum}}</td></tr>
+        </tbody>
+    </script>
+
+    <script type="text/template" id="template1">
+        <thead><tr><th>姓名</th><th>年龄</th><th>性别</th><th>职位</th></tr></thead>
+        <tbody>
+        {{#a}}
+        <tr><td>{{name}}</td><td>{{age}}</td><td>{{sex}}</td><td>{{job}}</td></tr>
+        {{/a}}
+                <tr><td colspan="4">总人数：{{sum}}</td></tr>
+        </tbody>
+    </script>
+    <script>
+        $(function() {
+            var users = {result: [
+                {name: "Only", age: 24, sex: "boy", job: "web"},
+                {name: "for", age: 24, sex: "boy", job: "phone"},
+                {name: "Olive", age: 23, sex: "girl", job: "java"}
+            ], sum : "3"};
+
+            var a = {a: [
+                {name: "Only", age: 24, sex: "boy", job: "web"},
+                {name: "for", age: 24, sex: "boy", job: "phone"},
+                {name: "Olive", age: 23, sex: "girl", job: "java"}
+            ], sum : "3"};
+
+
+            //alert(typeof Mustache.render($("#template").html(), users))
+            $("#table0").html(Mustache.render($("#template").html(), users));
+
+            $("#table1").html(Mustache.render($("#template1").html(), a));
+        });
+    </script>
+</body>
+</html>

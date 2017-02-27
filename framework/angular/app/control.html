@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans" ng-app="controlApp">
+<head>
+    <title>Angular控件</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, Chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="img/favicon.ico">
+</head>
+<body class="container">
+    <h1>服务</h1>
+    <div ng-controller="controlCtrl">
+        <select class="form-control" ng-model="selectName" ng-options="x for x in names"></select>
+    </div>
+
+    <h2>表单</h2>
+    <div ng-controller="formCtrl">
+        <form action="javascript:;" novalidate>
+            <div class="form-group">
+                <label for="surname">姓</label>
+                <input id="surname" class="form-control" name="surname" type="text" ng-model="user.surname">
+            </div>
+            <div class="form-group">
+                <label for="name">名</label>
+                <input id="name" class="form-control" name="name" type="text" ng-model="user.name">
+            </div>
+            <button class="btn btn-default btn" type="button" ng-click="reset()">Reset</button>
+        </form>
+    </div>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        var app = angular.module('controlApp', []);
+
+        app.controller('controlCtrl', function($scope) {
+            $scope.names = ['Google', 'Runoob', 'Taobao'];
+            $scope.course = ['Node', 'JavaScript', 'H5', 'C3'];
+        });
+
+        app.controller('formCtrl', function($scope) {
+            $scope.master = {
+                surname: 'Lin',
+                name: 'Super'
+            };
+
+            $scope.reset = function() {
+                $scope.user = angular.copy($scope.master);
+            };
+
+            $scope.reset();
+        });
+    </script>
+</body>
+</html>

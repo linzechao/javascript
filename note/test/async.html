@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>async</title>
+</head>
+<body>
+	
+<script>
+	/*setTimeout(function() {
+		for (var i = 0; i < 10000; i++) {
+			console.log('||||||||||');
+		}
+	}, 1000);
+
+	setTimeout(function() {
+		for (var j = 10000; j > 0; j--) {
+			console.log('----------');
+		}
+	}, 1000);*/
+
+	var i = 0, j = 10000;
+	setInterval(function() {
+		if (i < 10000) 
+			console.log('||||||||||');
+		i++;
+	}, 1);
+
+	setInterval(function() {
+		if (j > 0) 
+			console.log('----------');
+		j--;
+	}, 1);
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>KO2</title>
+	<link rel="stylesheet" href="../bootstrap/bt.css">
+	<style>
+		p {padding: 10px;}
+		span {
+			margin: 2px;
+			padding: 5px;
+			border: 1px solid #c2c2c2;
+			border-radius: 4px;
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+<body class="container">
+	<p class="bg-danger" data-bind="template: 'tmp1'"></p>
+
+
+
+	<script id='tmp1' type='text/template'>
+	   	<span class="text-primary">${name}</span> is ${age} years old
+	    <button class="btn btn-primary btn-sm" data-bind="click: ageAdd1">Make older</button>
+	</script>
+
+
+
+	<script src="../jquery/jq.js"></script>
+	<!-- 用来渲染模板的js-->
+	<script src="jq.tmpl.js"></script>
+	<script src="knockout-min.js"></script>
+	<script>
+		$(function () {
+			var tmp1 = $('#tmp1');
+			var viewModel = {
+				json: 'JSON.stringify',
+				name: ko.observable('Super'),
+				age: ko.observable(20),
+				ageAdd1: function () {
+					this.age(this.age() + 1);
+					if (this.age() > 30) {
+						this.name('Super Uncle!');
+					}
+				}
+			};
+			// console.log(JSON.stringify(viewModel));
+			// {"json":"JSON.stringify"}
+			console.log(ko.toJSON(viewModel));
+			// object对象
+			console.log(ko.toJS(viewModel));
+			ko.applyBindings(viewModel);
+		});
+	</script>
+</body>
+</html>

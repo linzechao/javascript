@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans" ng-app="direcApp">
+<head>
+    <meta charset="utf-8">
+    <title>Directive</title>
+    <style>
+        body {margin: 0;}
+        div {
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div ng-controller="direcCtre1">
+        <loader howToLoad="loadData_1()">滑动加载·1</loader>
+    </div>
+
+    <div ng-controller="direcCtre2">
+        <loader howToLoad="loadData_2()">滑动加载·2</loader>
+    </div>
+
+    <script src="../../bower_components/angular/angular.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            var direcApp = angular.module('direcApp', []);
+
+            direcApp.controller('direcCtre1', function($scope) {
+                $scope.loadData_1 = function() {
+                    console.info('1·加载中...');
+                };
+            });
+
+            direcApp.controller('direcCtre2', function($scope) {
+                $scope.loadData_2 = function() {
+                    console.info('2·加载中...');
+                };
+            });
+
+            direcApp.directive('loader', function() {
+                return {
+                    // 默认A
+                    restrict: 'E',
+
+                    // 每次覆盖渲染都会执行
+                    // 一般在link里面做一些DOM的操作
+                    link: function(scope, element, attrs, controller) {
+                        element.bind('mouseenter', function() {
+                            scope.$apply(attrs.howtoload);
+                        });
+                    },
+
+                    // 渲染的时候只执行一次
+                    compile: function(el, attrs, transclude) {
+
+                    }
+                };
+            });
+        }());
+    </script>
+</body>
+</html>

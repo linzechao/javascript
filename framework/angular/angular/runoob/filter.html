@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+</head>
+<body>
+	<h4>Angular过滤器</h4>
+	<div ng-app="" ng-controller="filterController">
+		<p>大写 | uppercase：{{filter.demoString | uppercase}}</p>
+		<p>小写 | lowercase：{{filter.demoString | lowercase}}</p>
+		<p>货币 | currency：{{filter.demoInt | currency}}</p>
+		<ol>
+			<li ng-repeat="i in filter.demoArray | orderBy">
+				{{i}}
+			</li>
+		</ol>
+		<ol>
+			<li ng-repeat="j in filter.demoObject | orderBy: 'age'">
+				{{j.name + ' is ' + j.age}}
+			</li>
+		</ol>
+
+		<form action="javascript:;">
+			<input type="text" ng-model="n.name" placeholder="搜索">
+			<br>
+			结果：
+			<ul>
+				<li ng-repeat="n in filter.demoObject | filter: n.name | orderBy: 'age'">
+					{{n.name + ' is ' + n.age}}
+				</li>
+			</ul>
+		</form>
+	</div>
+
+
+	<script src="//cdn.bootcss.com/angular.js/1.2.28/angular.min.js"></script>
+	<script>
+	function filterController($scope) {
+		$scope.filter = {
+			demoString: 'Lin Ze Chao',
+			demoInt: 28,
+			demoArray: [40, 20, 10, 30],
+			demoObject: [{
+				name: 'angular',
+				age: 4
+			}, {
+				name: 'bootstrap',
+				age: 3
+			}, {
+				name: 'canvas',
+				age: 2
+			}, {
+				name: 'd3',
+				age: 1
+			}]
+		};
+	}
+	</script>
+</body>
+</html>

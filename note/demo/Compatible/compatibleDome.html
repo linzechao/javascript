@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Compatible Demo</title>
+    <script src='Ele.js'></script>
+    <script src='Ev.js'></script>
+    <script src='../frame/script.js'></script>
+    <style>
+        * {margin:0;padding:0;}
+        a {display:inline-block;height:40px;width:120px;line-height:30px;text-decoration:none;border:0;}
+        a:link, a:active, a:visited {color:#fedcba;}
+        a:hover {color:#abcdef;border-color:#abcdef;}
+        .btn-box {display:none;width:120px;height:100px;line-height:100px;margin:10px auto;text-align:center;border:1px solid #abcdef;}
+        .btn {width:120px;height:40px;line-height:30px;}
+        .btn.button, .btn.button:active, .btn.button:visited {width:120px;background:none;border:0;color:#fedcba;font-size:15px;outline:none;}
+        .btn.button:hover {border:0;color:#abcdef;cursor:pointer;}
+        .drag {position:absolute;left:50%;top:50%;width:200px;height:200px;margin-top:-100px;margin-left:-100px;
+            background:rgba(171, 205, 239, .4);box-shadow:0 0 10px #abcdef;
+            text-align:center;border:1px solid #abcdef;border-radius:10px;}
+        .drag h1 {height:30px;line-height:30px;font-size:18px;border-bottom:1px solid #abcdef;}
+        .drag h1:hover {cursor:move;}
+    </style>
+</head>
+<body>
+    <div class='btn-box'>
+        <a class='btn' href='javascript:alert("Hello World!");'>Hello World!</a>
+    </div>
+
+    <div class='btn-box' id='btn-box'>
+        <a class='btn' id='btn' href='javascript:alert("Hello World!");'>Hello World!</a>
+    </div>
+
+    <div class='btn-box'>
+        <button class='btn button'>Hello World!</button>
+    </div>
+
+    <div id="drag" class="drag">
+        <h1>这是一个标题而已</h1>
+        <p>
+            <br>
+            <br>
+            请摁住标题进行拖拽
+        </p>
+    </div>
+</body>
+</html>

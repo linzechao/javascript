@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- 附加ng-app为自动启动angular -->
+<!-- 在html标签加上 ng-app="moduleName" -->
+<html lang="cmn-Hans" ng-controller="ctrlName">
+<head>
+    <meta charset="utf-8">
+    <title>{{demo.title}}</title>
+</head>
+<body>
+    <h1>当前时间：<time datetime="{{demo.date}}" ng-bind="demo.date | date: 'yyyy-MM-dd hh:mm:ss EEEE'"></time></h1>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            var app = angular.module('moduleName', []);
+
+            // 推断型注入
+            // 没用[]数组包住的参数
+            // 需要与参数名一致
+            // 压缩的时候就GG了
+            var ctrl = function(scope) {
+                scope.demo = {
+                    title: 'Angular的启动方式',
+                    date: +new Date()
+                }
+            };
+
+            app.controller('ctrlName', ctrl);
+
+            // 或者使用$inject
+            // 声明式注入
+            ctrl.$inject = ['$scope'];
+
+            // 手动启动angular
+            angular.element(document).ready(function() {
+                angular.bootstrap(document, ['moduleName']);
+            });
+        }());
+    </script>
+</body>
+</html>

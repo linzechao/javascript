@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, Chrome=1">
+    <title>模拟滚动条</title>
+    <style>
+        body,
+        h2,
+        p {
+            margin: 0;
+        }
+        h2 {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        p {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        #roll-1 {
+            width: 80%;
+            height: 400px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #000;
+            text-align: center;
+        }
+
+        .role-roll {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roll-bar {
+            position: absolute;
+            display: none;
+            right: 4px;
+            width: 8px;
+            border-radius: 8px;
+            background-color: #bbb;
+            background-color: rgba(0, 0, 0, .2);
+        }
+    </style>
+</head>
+
+<body>
+    <section id="roll-1" class="role-roll">
+        <div class="roll-box">
+            <article>
+                <h2>1</h2>
+                <p>前几天我和我妈去商场逛街，来到了New Balance店里面试鞋。我妈最近在跳广场舞，总想要买双舒服的运动鞋。</p>
+                <p>这几年，New Balance莫名其妙地火了，穿上它，好像整个人就牛逼起来。</p>
+                <p>我妈看上了一双，红色的，上面有些花纹，说真的，大小刚刚合适，我问我妈：穿着舒服么。</p>
+                <p>我妈站起来，在镜子面前转了一圈，她那模样，还挺自得：挺好的，感觉挺轻松。我看见她啊，笑眯眯的，眼睛都笑弯了，显然是很喜欢了。</p>
+                <p>然后一问价格：八百多。</p>
+                <p>我妈一听价格就有点犹豫，我看她在镜子面前转了两圈，那副又喜欢又嫌弃的模样，显然啊，纠结了。</p>
+                <p>我就偶尔穿一次，要不就算了，不买了，家里也不是没运动鞋。我妈轻声嘀咕着，可是我知道她没有说出来的话，太贵了，买回去又不穿几次，浪费。</p>
+                <p>穿着好看就买么，你跳广场舞的时候，刚好合适。这钱，我出。</p>
+                <p>太贵了。我妈轻声说着，可是啊，那语气，却是没那么坚决了。</p>
+                <p>我直接让导购把鞋子装好，然后就到前台把钱给付了。那段期间，我妈跟个小媳妇样跟在我身边。等到走出店铺，我看见我妈拎着购物袋，嘴角却是浅浅的笑容，似乎还想要矜持，可偏偏又是止不住开心。</p>
+                <p><strong>我突然就觉得，这钱，花的真值，哪怕穿的次数少，可至少让我妈高兴。</strong></p>
+            </article>
+
+            <article>
+                <h2>2</h2>
+                <p>那天回到家，我妈就兴冲冲地换上了新鞋，然后去跳广场舞了。</p>
+                <p>本来一般跳到九点就要回家的人，那天跳到了十点才回来。</p>
+                <p>我去客厅接水，然后就看见我妈哼着歌，一副乐滋滋的模样，显然是心情极好。</p>
+                <p>我冲着我爸挑了挑眉，我爸摊了摊手，随后就是说道：“你妈说你买的鞋，跳舞跳起来就是舒服，开心着呢。”</p>
+                <p>我突然就乐了，忍不住就是说道：“那妈妈你多穿穿。”</p>
+                <p>我妈冲我招了招手，一副神采飞扬的模样。</p>
+                <p>接下来几天，我妈每天不到十点就不回家。我往鞋架上面一看，那双NB鞋总是不在。</p>
+                <p>我爸坐在客厅里面看电视，形单影只的，他冲我喊道：“你妈啊，这几天都开心坏了，天天穿着你买的那双鞋出去跳广场舞，每见到一个人，就说这双鞋是你送的，她啊，正嘚瑟着呢。”</p>
+                <p>我忍不住就是一笑。</p>
+                <p>随后，我爸又嚷嚷道：闺女，你什么时候也送老爸一个呗，我也出去显摆显摆。我爸一副不好意思又理直气壮的样子。</p>
+                <p>“好啊，过两天就给爸爸买。”我爸听了这话，似乎就心满意足了，“别买太贵啊，意思意思就行了。”我爸忍不住又加了一句。</p>
+                <p>我突然想起，我小的时候，有了什么新玩具，总归要把它带到我的小伙伴的面前炫耀一番，瞧见所有人羡慕的眼神，然后再加上一句：我爸爸给我买的。</p>
+                <p>那语气，又得意又骄傲，就觉得自己是天底下最幸福的小公主，我有的，你们都没有。</p>
+                <p>现在长大了，彼此的位置反倒是颠倒过来了，我爸妈拿着我送的东西，相比于我的喜新厌旧，他们总是一遍一遍地夸着。</p>
+                <p>送了条围巾，恨不得天天是冬天，然后挂在脖子上。送了双球鞋，每天都要出去运动，送了个手链，那更是挂在手上不肯摘了。</p>
+                <p>若是生日送了蛋糕，恨不得昭告天下，我女儿买给我的。然后，朋友圈马上九张图附上，再加一句：今天我生日，女儿给我买了蛋糕，谢谢女儿。</p>
+                <p>子女做了一件小事就让他们铭记于心，片刻不敢忘。</p>
+                <p>只是啊，长这么大，不知道给我做过多少事情了，且不说尚未成年之时，就是长大之后，每月的零花钱，时不时的嘘寒问暖，我工作时的关心，我失业时的鼓励，大概是我一向来都觉得理所当然，所以没往心里去。</p>
+                <p>可是啊，现在看着他们两个，稍微送个礼物，稍微送上一句关心，就高兴地跟什么似的，不知道为什么，心里面有些不是滋味。</p>
+                <p><strong>大概是没心没肺久了，难得有心了，就会难受。</strong></p>
+            </article>
+
+            <article>
+                <h2>3</h2>
+                <p>我闺蜜十一的时候回到家，拉着他爸妈去周大福，给她妈买了一条金项链，给她爸买了一个金戒指。</p>
+                <p>当天我就看到了他爸妈的两条朋友圈推送。</p>
+                <p>闺蜜妈妈：女儿真的懂事了，给我买了项链，给她爸爸买了戒指，有女儿真好。下面是全家福，顺带礼物特写。亮晶晶的，简直就是闪瞎我的双眼。</p>
+                <p>闺蜜爸爸：女儿十一回家特地带我们两老去挑礼物，女儿有心了。顺带全家福和闪瞎眼的金子配图。</p>
+                <p>我爸妈和闺蜜爸妈都是好朋友。</p>
+                <p>我瞧见我妈就在下面评论道：老李，你家丝丝真懂事，看来你们以后要享福了。</p>
+                <p>然后我就看见我爸迅速点了两个赞，紧接着就是说道：丝丝真的很孝顺，老李，你家闺女真不错，真不像我家这个……</p>
+                <p>大人们你来我往的，夸来夸去，你女儿好，我女儿差，中国的国情似乎总是要把自己的孩子损一损，然后使劲夸夸别人的孩子。</p>
+                <p>我闺蜜丝丝却是微信发消息给我：我没想着买金子的啊，我爸妈硬要买金子，说是金子升值，以后还可以留给我，算了，他们开心就好。</p>
+                <p>原来父母就是，你送给我贵重礼物，我高高兴兴收了，可是到了最后，还是忍不住为你着想，想要它留给你。</p>
+                <p>那时候，我们全家在外地旅游。</p>
+                <p>我爸妈到了晚上的时候，迅速在朋友圈发了几张餐厅和白天拍的风景照。</p>
+                <p>我爸说：全家一起出来旅游，女儿终于懂事了，吃喝都是她安排的。</p>
+                <p>我妈说：女儿出门安排好旅游景点，票都是她订的，有女儿在，事事放心。</p>
+                <p>我瞧见闺蜜爸妈也是迅速点赞，紧接着就是评论道：你家陆陆真懂事，还带你们出去玩，不像是我家丝丝，不爱出门……</p>
+                <p>似乎又是重复了一样的情景。</p>
+                <p>这是中国式家长的典型特点。见到别人家孩子的好，总是夸别人的孩子，然后说自己的孩子不好。</p>
+                <p>可是，我们忘了一点，除了他们，没人能够说我们一句坏话，若是有人说我们一句，他们肯定第一个不同意。</p>
+                <p>我想说，你们肯定会说他们炫耀孩子。</p>
+                <p>可是，这又怎么了？</p>
+                <p>就是我们，还不懂事的天天炫耀一下吃饭的高级餐厅，自拍的美照，新买的奢侈品。</p>
+                <p>父母殷殷切切地把你的照片发在他们的朋友圈，就是因为觉得真的觉得你好，你最珍贵，才忍不住就想要公之于众，一起来分享他们的幸福。</p>
+                <p>想要昭告天下，你的存在，是他们一辈子最大的成就，哪怕，你仅仅只是做了一件小事。</p>
+            </article>
+        </div>
+    </section>
+
+    <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(function() {
+            'use strict';
+
+            setRoll();
+
+            function setRoll() {
+                var $roleRoll = $('.role-roll'),
+                    parentHeight = $roleRoll.height(),
+                    box = new scrollBox($roleRoll.find('.roll-box')),
+                    bar = new scrollBar(box),
+                    timeout;
+
+                // 滚动事件
+                box.self.on('mousewheel', function(e) {
+                    bar.self.fadeIn(100);
+
+                    // 鬼畜IE(往下为负数)
+                    // -e.originalEvent.wheelDelta
+                    var down = e.originalEvent.deltaY || -e.originalEvent.wheelDelta;
+
+                    // 滚动条滚动
+                    bar.self.offset({
+                        top: bar.getRollVal(down)
+                    });
+
+                    // 内容滚动
+                    box.self.offset({
+                        top: box.getRollVal(down)
+                    });
+
+                    clearTimeout(timeout);
+                    timeout = setTimeout(function() {
+                        bar.self.fadeOut();
+                    }, 400);
+                }).hover(function() {
+                    // 鼠标移入
+                    bar.self.fadeIn(100);
+                }, function() {
+                    // 鼠标移出，无效果
+                    bar.self.fadeOut();
+                });
+
+
+                // 内容
+                function scrollBox(box) {
+                    this.self = box;
+                    this.height = this.self.height();
+                    this.step = 100;
+                    this.max = this.self.offset().top;
+
+                    var _min = -(this.height - parentHeight - this.max);
+
+                    this.getRollVal = function(down) {
+
+                        var step = this.self.offset().top + (down > 0 ? -this.step : this.step);
+
+                        step = step >= this.max ? this.max : (step <= _min ? _min : step);
+
+                        return step;
+                    }
+                }
+
+
+                // 滚动条
+                function scrollBar(box) {
+                    var _height = Math.pow(parentHeight, 2) / box.height,
+                        _step = box.step * parentHeight / box.height,
+                        _init = 4,
+                        _min = box.max + _init,
+                        _max = box.height - (box.height - parentHeight - box.max) - _height - _init;
+
+                    this.self = $('<i class="roll-bar"></i>');
+                    this.getRollVal = function(down) {
+
+                        var step = this.self.offset().top + (down > 0 ? _step : -_step);
+
+                        step = step <= _min ? _min : (step >= _max ? _max : step);
+
+                        return step;
+                    }
+
+                    $roleRoll.append(this.self);
+                    // box.self.append(this.self);
+
+                    // 初始化
+                    this.self.height(_height).offset({
+                        top: _init
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

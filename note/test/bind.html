@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>bind</title>
+</head>
+<body>
+<button class="btn" type="button">Bind and On</button>
+<script src="//sc/com/note/demo/slider/jq/jquery-1.8.3.js"></script>
+<script>
+	$(function () {
+		var $btn = $('.btn');
+		$btn.on('aa', function () {
+			console.log('on aa');
+		});
+
+		$btn.trigger('aa');
+	});
+</script>
+</body>
+</html>

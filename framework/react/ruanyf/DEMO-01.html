@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>DEMO 01</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- React核心库 -->
+    <script src="../bower_components/react/react.min.js"></script>
+
+    <!-- React提供与DOM相关的功能 -->
+    <script src="../bower_components/react/react-dom.min.js"></script>
+
+    <!-- 解析JSX语法 -->
+    <script src="../bower_components/babel/browser.min.js"></script>
+</head>
+
+<body class="container">
+    <header id="header"></header>
+    <article id="say-hello"></article>
+    <article id="list"></article>
+
+    <script type="text/babel">
+        /*
+         * 小试关刀
+         */
+        ReactDOM.render(
+            <h4 className="bg-warning">Hello, Super!</h4>,
+
+            document.getElementById('say-hello')
+        );
+
+
+        /*
+         * 遇到<开头的使用HTML解析
+         * 遇到{开头的使用JavaScript解析
+         */
+        var names = ['Alice', 'Emily', 'Kate'];
+        ReactDOM.render(
+            <ol>
+                {
+                    names.map(function(name) {
+                        return <li>{name}</li>
+                    })
+                }
+            </ol>,
+
+            document.getElementById('list')
+        );
+
+
+        /*
+         * 如果是数组则会迭代，依次加载
+         * render的第一个参数一定要用HTML标签包含
+         */
+        var arr = [
+            <h1 className="bg-success text-success">one</h1>,
+            <h2 className="bg-danger text-danger">two</h2>
+        ];
+        ReactDOM.render(
+            <nav>{arr}</nav>,
+
+            document.getElementById('header')
+        );
+    </script>
+</body>
+</html>

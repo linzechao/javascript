@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Array</title>
+</head>
+<body>
+	<script>
+	var aObject = [
+		{
+			name: 'lin',
+			age: 10
+		},
+
+		{
+			name: 'ze',
+			age: 12
+		},
+
+		{
+			name: 'chao',
+			age: 14
+		},
+
+		{
+			name: 'super',
+			age: 18
+		},
+	];
+
+	var aMap = aObject.map(function(subObj) {
+		subObj.sex = 'boy';
+		return subObj;
+	});
+
+	var aFilter = aObject.filter(function(subObj) {
+		return 'super' === subObj.name;
+	});
+
+	console.info(aMap);
+	console.info(aFilter);
+	</script>
+</body>
+</html>

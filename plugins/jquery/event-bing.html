@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>Event Bing</title>
+	<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		.alert-box {
+			position: fixed;
+			top: 0;
+			left: 50%;
+			display: none;
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			transform: translateX(-50%);
+		}
+
+		.alert-box em {margin-right: 10px;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Event Bing <small>绑定事件的各方法区别</small></h1>
+		<hr>
+		<dl class="dl-horizontal">
+			<dt>场景：</dt>
+			<dd>下面有一个无序列表，给列表的每项添加一个事件(这里用click实例，其他事件一样)，弹出自身内容。</dd>
+		</dl>
+		<ul>
+			<li><a href="##">项目1</a></li>
+			<li><a href="##">项目2</a></li>
+			<li><a href="##">项目3</a></li>
+			<li><a href="##">项目4</a></li>
+		</ul>
+
+		<!-- 功能按钮-->
+		<div class="btn-group">
+		  <button type="button" class="btn btn-default add-li">添加一个子项目</button>
+		</div>
+
+		<!-- 绑定方式-->
+		<div class="btn-group pull-right radio-box" data-toggle="buttons">
+		  	<label class="btn btn-primary active">
+		    	<input type="radio" name="options" value="click" checked> 使用click
+		  	</label>
+		  	<label class="btn btn-primary">
+		    	<input type="radio" name="options" value="bing"> 使用bing
+		  	</label>
+		  	<label class="btn btn-primary">
+		    	<input type="radio" name="options" value="on"> 使用on
+		  	</label>
+		</div>
+
+		<!-- 提示框-->
+		<div class="alert alert-success alert-box">
+		  	<button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+		  	<em></em>
+		</div>
+	</div>
+	<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script>
+	$(function() {
+		var $ul = $('ul');
+
+		function addEvent() {
+			fAlert($(this).html());
+		}
+
+		$('.radio-box').on('change', 'input', function() {
+			switch($(this).val()) {
+				case 'click':
+					/**
+					 * 使用click添加事件
+					 * 只能在原有(页面加载后)的Dom节点上添加事件
+					 */
+					$ul.find('li').click(addEvent);
+
+					// 删除其它事件
+					$ul.unbind('click');
+					$ul.off('click');
+				break;
+
+				case 'bing':
+
+					// 删除其它事件
+					$ul.find('li').click(null);
+					$ul.off('click');
+				break;
+
+				case 'on':
+
+					// 删除其它事件
+					$ul.find('li').click(null);
+					$ul.unbind('click');
+				break;
+			}
+		});
+
+		$('.radio-box').find('input').eq(0).change();
+
+		// 添加一个子项目
+		$('.add-li').on('click', function() {
+			$ul.append('<li><a href="##">项目' + ($ul.find('li').length + 1) + '</a></li>')
+		});
+
+		// 弹出提示框，3秒后自动消失
+		var $alertBox = $('.alert-box');
+		function fAlert(sCont) {
+			$alertBox.stop().find('em').html(sCont).end().show();
+
+			var fSetTime = setTimeout(function() {
+				$alertBox.hide();
+				clearTimeout(fSetTime);
+				fSetTime = null;
+			}, 3000);
+		}
+	});
+	</script>
+</body>
+</html>

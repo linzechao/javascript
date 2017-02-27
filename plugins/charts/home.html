@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f7f7f7;
+            font-family: "Microsoft YaHei", "微软雅黑";
+        }
+
+        #main {
+            width: 880px;
+            height: 280px;
+            margin: 40px auto 0;
+            background-color: #fff;
+        }
+
+        #main ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            white-space: nowrap;
+            font-size: 0;
+            text-align: center;
+        }
+
+        #main li {
+            display: inline-block;
+            width: 160px;
+            height: 280px;
+            margin-right: 20px;
+            font-size: 14px;
+        }
+
+        #main h4 {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-weight: normal;
+            color: #999;
+        }
+
+        #main h5 {
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        #main .ec {height: 120px;}
+
+        #main .red {color: #cc0f0e;}
+        #main .green {color: #439602;}
+    </style>
+</head>
+<body>
+    <article id="main">
+        <ul>
+            <li>
+                <h4>来访量转化率</h4>
+                <div id="ec-come" class="ec"></div>
+                <h5>1.2%</h5>
+                <small class="red">(+3.22%)</small>
+            </li>
+            <li>
+                <h4>洽谈量转化率</h4>
+                <div id="ec-talk" class="ec"></div>
+                <h5>3.2%</h5>
+                <small class="green">(+3.22%)</small>
+            </li>
+            <li>
+                <h4>留言量转化率</h4>
+                <div id="ec-msg" class="ec"></div>
+                <h5>1.8%</h5>
+                <small class="red">(+3.22%)</small>
+            </li>
+            <li>
+                <h4>邀约量转化率</h4>
+                <div id="ec-call" class="ec"></div>
+                <h5>1.6%</h5>
+                <small class="green">(+3.22%)</small>
+            </li>
+            <li>
+                <h4>成交量转化率</h4>
+                <div id="ec-make" class="ec"></div>
+                <h5>2.2%</h5>
+                <small class="red">(+3.22%)</small>
+            </li>
+        </ul>
+    </article>
+
+    <script src="bower_components/echarts/dist/echarts.simple.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            var ecCome = echarts.init(document.getElementById('ec-come')),
+                ecTalk = echarts.init(document.getElementById('ec-talk')),
+                ecMsg = echarts.init(document.getElementById('ec-msg')),
+                ecCall = echarts.init(document.getElementById('ec-call')),
+                ecMake = echarts.init(document.getElementById('ec-make')),
+
+                option = {
+                    backgroundColor: '#f8f8f8',
+                    grid: {
+                        top: 5,
+                        right: 5,
+                        bottom: 5,
+                        left: 5,
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        scale: true,
+                        axisLabel: {
+                            margin: 5,
+                            interval: 3,
+                            textStyle: {
+                                color: '#999',
+                                fontSize: 8
+                            }
+                        },
+                        axisTick: {length: 0},
+                        splitLine: {show: false},
+                        data: ['1/5','5/5','10/5','15/5','20/5','25/5','30/5', '1/5','5/5','10/5','15/5','20/5','25/5','30/5']
+                    },
+                    yAxis: {
+                        type: 'value',
+                        splitNumber: 6,
+                        axisTick: {length: 0},
+                        axisLabel: {
+                            margin: 5,
+                            textStyle: {
+                                color: '#999',
+                                fontSize: 8
+                            }
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                color: '#ddd',
+                                type: 'dotted'
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name:'邮件营销',
+                            type:'line',
+                            symbol: 'none',
+                            data:[120, 132, 101, 134, 90, 230, 210, 120, 132, 101, 134, 90, 230, 210],
+                            animationEasing: 'bounceOut'
+                        },
+                        {
+                            name:'联盟广告',
+                            type:'line',
+                            symbol: 'none',
+                            data:[220, 182, 191, 234, 290, 330, 310, 220, 182, 191, 234, 290, 330, 310],
+                            animationEasing: 'bounceOut'
+                        },
+                        {
+                            name:'视频广告',
+                            type:'line',
+                            symbol: 'none',
+                            data:[150, 232, 201, 154, 190, 330, 410, 150, 232, 201, 154, 190, 330, 410],
+                            animationEasing: 'bounceOut'
+                        },
+                        {
+                            name:'直接访问',
+                            type:'line',
+                            symbol: 'none',
+                            data:[320, 332, 301, 334, 390, 330, 320, 320, 332, 301, 334, 390, 330, 320],
+                            animationEasing: 'bounceOut'
+                        },
+                        {
+                            name:'搜索引擎',
+                            type:'line',
+                            symbol: 'none',
+                            data:[320, 432, 501, 434, 490, 530, 520, 320, 432, 501, 434, 490, 530, 520],
+                            animationEasing: 'bounceOut'
+                        }
+                    ]
+                };
+
+            ecCome.setOption(option);
+            ecTalk.setOption(option);
+            ecMsg.setOption(option);
+            ecCall.setOption(option);
+            ecMake.setOption(option);
+        }());
+    </script>
+</body>
+</html>

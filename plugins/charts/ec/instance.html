@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #one,
+        #two {
+            display: inline-block;
+            width: 50%;
+            height: 180px;
+            margin-top: 40px;
+        }
+
+        #ec {
+            width: 600px;
+            height: 50%;
+            margin: 40px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="one"></div><div id="two"></div>
+    <div id="ec"></div>
+    <script src="../bower_components/echarts/dist/echarts.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            // 图形参数
+            var oneOpt = {
+                title: {
+                    text: '世界人口总量',
+                    subtext: '数据来自网络'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['2011年', '2012年']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    boundaryGap: [0, 0.01]
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['巴西','印尼','美国','印度','中国','世界人口(万)']
+                },
+                series: [
+                    {
+                        name: '2011年',
+                        type: 'bar',
+                        data: [18203, 23489, 29034, 104970, 131744, 630230]
+                    },
+                    {
+                        name: '2012年',
+                        type: 'bar',
+                        data: [19325, 23438, 31000, 121594, 134141, 681807]
+                    }
+                ]
+            },
+
+            twoOpt = {
+                title: {
+                    text: '某站点用户访问来源',
+                    subtext: '纯属虚构',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius : '55%',
+                        center: ['50%', '60%'],
+                        data:[
+                            {value:335, name:'直接访问'},
+                            {value:310, name:'邮件营销'},
+                            {value:234, name:'联盟广告'},
+                            {value:135, name:'视频广告'},
+                            {value:1548, name:'搜索引擎'}
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+
+            // DOM节点
+            var oneDOM = document.getElementById('one');
+                
+            var one = echarts.init(oneDOM);
+
+            // 是否覆盖上一次的option，默认false
+            var notMerge = true;
+
+            // 是否不立即刷新画布
+            var notRefreshImmediately = true;
+
+            // 设置内容
+            one.setOption(oneOpt);
+
+            setTimeout(function() {
+                // 隐藏加载图片
+                one.hideLoading();
+                // 设置option，并且覆盖掉之前的option
+                one.setOption(twoOpt, notMerge, notRefreshImmediately);
+            }, 2000);
+
+            // 用于联动
+            one.group = 'groupTeam';
+
+            // 容器宽高
+            console.info(one.getWidth());
+            console.info(one.getHeight());
+            // 容器Dom节点
+            console.info(one.getDom());
+            // 实例使用的Option
+            console.info(one.getOption());
+            // 刷新绘画
+            one.resize();
+            // 触发事件
+            one.dispatchAction({
+                type: 'legend',
+                batch: [{
+                    start: 20,
+                    end: 30
+                }]
+            });
+            // 绑定事件
+            // 一种为鼠标事件
+            // 一种是dispatchAction事件，legendselected
+            one.on('click', function(param) {
+                console.log(param);
+            }, function() {
+                alert('回调');
+            });
+            // 解除on绑定事件
+            one.off('click');
+            // 显示加载图片
+            one.showLoading({
+                text: '加载中...',
+                color: '#abcdef',
+                textColor: '#fedcba',
+                maskColor: 'rgba(0, 0, 0, .4)',
+                zlevel: 2
+            });
+
+            // 导出图片
+            // 返回一个base64图片
+            console.info(one.getDataURL({
+                type: 'png',
+                pixelRatio: 2,
+                backgroundColor: '#000'
+            }));
+            // 导出联动图片
+            console.info(one.getConnectedDataURL({
+                type: 'jpeg',
+                pixelRatio: 1,
+                backgroundColor: '#fff'
+            }));
+            // 移除option
+            one.clear();
+            // 销毁
+            // one.dispose();
+            // 示例是否被销毁释放
+            console.info(one.isDisposed());
+        }());
+    </script>
+</body>
+</html>

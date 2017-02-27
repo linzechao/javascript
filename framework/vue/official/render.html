@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!--
+    <aside id="date">{{date}}</aside>
+    <time id="time">{{time}}</time>
+    -->
+
+    <aside id="date">
+        <span v-if="star">★</span>
+        {{date}}
+        <button v-on:click="getMsg" type="button">get message</button>
+        <input type="text" v-model="date">
+    </aside>
+    <time id="time" v-bind:time="time">{{time}}</time>
+    <ul id="list">
+        <li v-for="item in map">{{item.name}}</li>
+    </ul>
+    <ol id="order">
+        <todo-item v-for="item in items" v-bind:todo="item"></todo-item>
+    </ol>
+
+
+    <script>
+        (function() {
+            'use strict';
+            Vue.component('todo-item', {
+                props: ['todo'],
+                template: '<li>{{todo.text}}</li>'
+            });
+
+            var date = new Vue({
+                    el: '#date',
+                    data: {
+                        date: new Date().toLocaleDateString(),
+                        star: true
+                    },
+                    methods: {
+                        getMsg: function() {
+                            this.date = 'wait...';
+                        }
+                    }
+                }),
+
+                time = new Vue({
+                    el: '#time',
+                    data: {
+                        time: new Date().toLocaleTimeString()
+                    }
+                }),
+                
+                list = new Vue({
+                    el: '#list',
+                    data: {
+                        map: [
+                            {name: 'Chao'},
+                            {name: 'Super'},
+                            {name: 'FE'},
+                            {name: 'Man'}
+                        ]
+                    }
+                }),
+                
+                order = new Vue({
+                    el: '#order',
+                    data: {
+                        items: [
+                            {text: 'Lin'},
+                            {text: 'Ze'},
+                            {text: 'Chao'},
+                            {text: 'Super'}
+                        ]
+                    }
+                });
+
+            setInterval(function() {
+                var dateTime = new Date();
+                date.date = dateTime.toLocaleDateString();
+                date.star = !date.star;
+
+                time.time = dateTime.toLocaleTimeString();
+                list.map.shift();
+                list.map.push({name: dateTime.toLocaleString()});
+            }, 10000);
+        }());
+    </script>
+</body>
+</html>

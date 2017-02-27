@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+</head>
+<body>
+	<h2>Angular控制器</h2>
+	<div ng-app="" ng-controller="personController">
+		名字：<input type="text" ng-model="person.name"><br>
+		昵称：<input type="text" ng-model="person.nickname"><br>
+		<hr>
+		<p>总称：{{person.nickname + ' ' + person.name}}</p>
+		<p>所有名称：{{person.getAllName()}}</p>
+		<p>全局名称：{{getGlobalName()}}</p>
+	</div>
+
+	<script src="//cdn.bootcss.com/angular.js/1.2.28/angular.min.js"></script>
+
+	<script>
+	function personController($scope) {
+		$scope.person = {
+			name: 'chao',
+			nickname: 'super',
+			getAllName: function() {
+				return this.nickname + ' ' + this.name;
+			}
+		};
+
+		$scope.getGlobalName = function() {
+			var person = $scope.person;
+			return 'this is Global name → ' + person.nickname + ', ' + person.name + ', ' + person.getAllName();
+		};
+	}
+	</script>
+</body>
+</html>

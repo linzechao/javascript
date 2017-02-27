@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>cdn</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<style>
+		.row div {
+			border: 1px solid #6699CC;
+			background-color: #CCCCFF;
+			color: #996666;
+		}
+		.box-sizing {
+			-webkit-box-sizing: border;
+			-moz-box-sizing: border;
+			box-sizing: border;
+		}
+		img {
+			width: 120px;
+			background-color: #CCCCFF;
+		}
+	</style>
+	</head>
+	<body>
+	<div class="container">
+		<hr>
+		<div class="row">
+			<div class="col-md-4">
+			<h4>row -> col-md-4 <small class="small">this is small label.</small></h4>
+			<p>row -> col-md-4</p>
+		</div>
+		<div class="col-md-4">
+			<h4>row -> col-md-4</h4>
+			<p>row -> col-md-4</p>
+		</div>
+		<div class="col-md-4">
+			<h4>row -> col-md-4</h4>
+			<p>row -> col-md-4</p>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-1">
+			<h4>row -> col-md-4 col-md-offset-1</h4>
+			<p>row -> col-md-4 col-md-offset-1</p>
+		</div>
+		<div class="col-md-4 col-md-offset-2">
+			<h4>row -> col-md-4 col-md-offset-2</h4>
+			<p>row -> col-md-4 col-md-offset-2</p>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-9 col-md-push-3">
+			<h4>row -> col-md-9 col-md-pull-3</h4>
+			<p>row -> col-md-9 col-md-pull-3</p>
+		</div>
+		<div class="col-md-3 col-md-pull-9">
+			<h4>row -> col-md-3 col-md-push-9</h4>
+			<p>row -> col-md-3 col-md-push-9</p>
+		</div>
+	</div>
+	<hr>
+	<div class="article">
+		<p class="lead">This is lead article.</p>
+		<p>this is normal article.</p>
+		<p>
+			<del>删除的文本</del><code>&lt;del&gt;</code><br>
+			<s>无用的文本</s><code>&lt;s&gt;</code><br>
+			<mark>标记文本</mark><code>&lt;mark&gt;</code><br>
+			<ins>插入文本</ins><code>&lt;ins&gt;</code><br>
+			<u>带下划线的文本</u><code>&lt;u&gt;</code><br>
+			<small>小号文本</small><code>&lt;small&gt;</code><br>
+			<strong>着重文本</strong><code>&lt;strong&gt;</code><br>
+			<em>斜体文本</em><code>&lt;em&gt;</code><br>
+			<b>高亮文本</b><code>&lt;b&gt;</code><br>
+			<i>发言、词汇</i><code>&lt;i&gt;</code><br>
+			<code>代码片段</code><code>&lt;code&gt;</code><br>
+			<kbd>用户输入</kbd><code>&lt;kbd&gt;</code><br>
+			<samp>程序输出</samp><code>hello world!</code><br>
+		</p>
+		<p class="text-left">Left aligned text.</p>
+		<p class="text-center">Center aligned text.</p>
+		<p class="text-right">Right aligned text.</p>
+		<p class="text-justify">Justified text.</p>
+		<p class="text-nowrap">No wrap text.</p>
+		<p class="text-lowercase">Lowercased text.</p>
+		<p class="text-uppercase">Uppercased text.</p>
+		<p class="text-capitalize">Capitalized text.</p>
+		<p>this is <abbr class="initialism" title="this is my attr...">attr</abbr></p>
+	</div>
+	<hr>
+	<blockquote>
+		<p>这是一段引用</p>
+		<footer>someone famous in <cite title="cite">Source Title</cite></footer>
+	</blockquote>
+	<blockquote class="blockquote-reverse">
+		<p>这是一段引用</p>
+		<footer>someone famous in <cite title="cite">Source Title</cite></footer>
+	</blockquote>
+	<hr>
+	<ul>
+		<li>无序列表（无关紧要的一列元素。）</li>
+		<li>无序列表（无关紧要的一列元素。）</li>
+		<li>无序列表（无关紧要的一列元素。）</li>
+		<li>无序列表（无关紧要的一列元素。）</li>
+	</ul>
+	<ol class="list-unstyled">
+		<li>有序列表（一组至关重要的元素）</li>
+		<li>有序列表（一组至关重要的元素）</li>
+		<li>有序列表（一组至关重要的元素）</li>
+		<li>有序列表（一组至关重要的元素）</li>
+		<li>有序列表（一组至关重要的元素）</li>
+	</ol>
+	<dl class="dl-horizontal">
+		<dt>this is dt label.</dt>
+		<dd>this is dd label.</dd>
+	</dl>
+	<hr>
+	<pre>
+// 这是一段java的main方法代码
+public void static main(String args[]) {
+  System.out.println('Hello World!');
+}
+// 下面的表格.table包含在.table-responsive里面就可以做响应式
+</pre>
+	<hr>
+	<div class="table-responsive">
+		<table class="table table-bordered table-hover table-striped table-condensed">
+			<thead>
+				<tr class="active">
+					<th>添加了一点内容，用来测试响应式表格的，请自行忽略这一段文字，虽然很多。。。。表头1</th>
+					<th>添加了一点内容，用来测试响应式表格的，请自行忽略这一段文字，虽然很多。。。。表头2</th>
+					<th>添加了一点内容，用来测试响应式表格的，请自行忽略这一段文字，虽然很多。。。。表头3</th>
+					<th>添加了一点内容，用来测试响应式表格的，请自行忽略这一段文字，虽然很多。。。。表头4</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="success">
+					<td>内容1</td>
+					<td>内容2</td>
+					<td>内容3</td>
+					<td>内容4</td>
+				</tr>
+				<tr class="info">
+					<td>内容1</td>
+					<td>内容2</td>
+					<td>内容3</td>
+					<td>内容4</td>
+				</tr>
+				<tr class="warning">
+					<td>内容1</td>
+					<td>内容2</td>
+					<td>内容3</td>
+					<td>内容4</td>
+				</tr>
+				<tr class="danger">
+					<td>内容1</td>
+					<td>内容2</td>
+					<td>内容3</td>
+					<td>内容4</td>
+				</tr>
+			</tbody>
+		</table>	
+	</div>
+	<hr>
+	<h2>表单</h2>
+	<form class="form-inline">
+		<div class="form-group">
+		    <label for="exampleInputEmail1">Email address</label>
+		    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+    	</div>
+    	<div class="form-group">
+    	    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+    	    <div class="input-group">
+				<div class="input-group-addon">$</div>
+				<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+				<div class="input-group-addon">.00</div>
+    	    </div>
+	  	</div>
+		<button class="btn btn-info" type="submit"><span class="glyphicon glyphicon-heart-empty"></span> Go</button>
+	</form>
+	<hr>
+	<form class="form-horizontal">
+	  <div class="form-group">
+	    <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+	    <div class="col-sm-4">
+	      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
+	    <div class="col-sm-4">
+	      <input type="password" class="form-control" id="inputPassword3" placeholder="Password" readonly>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-4 col-sm-4">
+	      <div class="checkbox">
+	        <label>
+	          <input type="checkbox"> Remember me
+	        </label>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-4 col-sm-4">
+	      <button type="submit" class="btn btn-default">Sign in</button>
+	    </div>
+	  </div>
+	</form>
+	<hr>
+	<fieldset disabled>
+		<select class="form-control">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>
+		<br>
+		<select class="form-control" multiple>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>
+	</fieldset>
+	<hr>
+	<div class="form-group has-success has-feedback">
+	  	<label class="control-label sr-only" for="inputSuccess5">Hidden label</label>
+	  	<input type="text" class="form-control" id="inputSuccess5" aria-describedby="inputSuccess5Status">
+	  	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+	  	<span id="inputSuccess5Status" class="sr-only">(success)</span>
+	</div>
+	<div class="form-group has-success has-feedback">
+	  	<label class="control-label sr-only" for="inputGroupSuccess4">Input group with success</label>
+	  	<div class="input-group">
+	    	<span class="input-group-addon">@</span>
+	    	<input type="text" class="form-control" id="inputGroupSuccess4" aria-describedby="inputGroupSuccess4Status">
+	  	</div>
+	  	<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+	  	<span id="inputGroupSuccess4Status" class="sr-only">(success)</span>
+	</div>
+	<hr>
+	<div class="row col-md-4">
+		<input class="form-control input-lg" type="text" placeholder=".input-lg">
+	</div>
+	<input class="form-control" type="text" placeholder="Default input">
+	<input class="form-control input-sm" type="text" placeholder=".input-sm">
+	<hr>
+	<h4>图片</h4>
+	<p>在 Internet Explorer 8-10 中，设置为 .img-responsive 的 SVG 图像显示出的尺寸不匀称。为了解决这个问题，在出问题的地方添加 width: 100% \9; 即可。Bootstrap 并没有自动为所有图像元素设置这一属性，因为这会导致其他图像格式出现错乱。</p>
+	<img class="center-block img-responsive img-rounded" src="http://bower.io/img/bower-logo.png" alt="Bower logo">
+	<img class="img-rounded" src="http://bower.io/img/bower-logo.png" alt="Bower logo">
+	<img class="img-circle" src="http://bower.io/img/bower-logo.png" alt="Bower logo">
+	<img class="img-thumbnail" src="http://bower.io/img/bower-logo.png" alt="Bower logo">
+	<hr>
+	<h4>辅助类</h4>
+	<p class="text-muted text-overflow">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh. Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh. Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh. Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+    <p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+    <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+    <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+    <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+	<p class="bg-primary text-overflow">Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam id dolor id nibh ultricies vehicula ut id elit. </p>
+    <p class="bg-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+    <p class="bg-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    <p class="bg-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+    <p class="bg-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+	<hr>
+	<footer>
+		<p>© Company 2014 <span class="glyphicon glyphicon-heart"></span> Mr. Super!</p>
+	</footer>
+</div>
+<!--
+<script src="http://cdn.bootcss.com/mustache.js/2.1.2/mustache.min.js"></script>
+<script src="http://cdn.bootcss.com/d3/3.5.5/d3.min.js"></script>
+<script src="http://cdn.bootcss.com/backbone.js/1.2.1/backbone-min.js"></script>
+<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+-->
+</body>
+</html>

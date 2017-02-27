@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+	<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container">
+	<h4>Angular Other</h4>
+	<div ng-app="otherApp" ng-controller="otherCtrl">
+		<h5>Angular Bootstrap</h5>
+		
+		<hr>
+
+		<h5>Angular Include</h5>
+	</div>
+
+	<script src="//cdn.bootcss.com/angular.js/1.2.28/angular.min.js"></script>
+	<script>
+	var otherApp = angular.module('otherApp', []);
+	otherApp.controller('otherCtrl', function($scope) {
+		
+	});
+	</script>
+</body>
+</html>

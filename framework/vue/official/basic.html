@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="element">
+        <p>{{message}}</p>
+            <p>{{reversedMessage}}</p>
+    </div>
+    
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            // 扩展
+            var MyVue = Vue.extend({
+                author: 'MR.Super'
+            });
+            var mVm = new MyVue({});
+            console.log(mVm.$options.author);
+
+            // 构造器
+            var vm = new Vue({
+                el: '#element',
+                data: {
+                    key: '数据',
+                    message: '631924081'
+                },
+
+                // 计算
+                computed: {
+                    reverseMsg: function() {
+                        return this.message.split('').reverse().join('');
+                    }
+                },
+
+                // 回调、事件
+                methods: {
+                    name: function() {
+                        // 方法
+                    }
+                },
+                created: function() {
+                    // 创建时触发
+                },
+                mounted: function() {
+                    // 安装
+                },
+                updated: function() {
+                    // 更新
+                },
+                destroyed: function() {
+                    // 注销
+                }
+            });
+
+            // 配置
+            console.log(vm.$data.key);
+
+        }());
+    </script>
+</body>
+</html>

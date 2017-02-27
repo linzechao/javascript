@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+	<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container">
+	<h4></h4>
+	<div ng-app="" ng-controller="httpController">
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>name</th>
+					<th>age</th>
+					<th>sex</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="d in data | orderBy: 'age'">
+					<td>{{d.id}}</td>
+					<td>{{d.name | uppercase}}</td>
+					<td>{{d.age}}</td>
+					<td>{{d.sex}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<script src="//cdn.bootcss.com/angular.js/1.2.28/angular.min.js"></script>
+	<script>
+	function httpController($scope, $http) {
+		$http
+			.post('http://sc/git/note/service/php/request.php')
+			.success(function(data) {
+				$scope.data = data.data;
+			});
+	}
+	</script>
+</body>
+</html>

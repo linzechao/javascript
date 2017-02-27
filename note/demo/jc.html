@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jc</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <input id="text" type="text">
+    <select id="select">
+        <optgroup label="Status">
+            <option value="0">None</option>
+            <option value="1" selected>All</option>
+        </optgroup>
+    </select>
+
+    <br>
+    可以根据我的笔记【JavaScript-boolean小知识】中归纳出来的布尔值来配合“if”
+    <script>
+        // <input id="text" type="text">
+        var oText = document.getElementById('text');
+        if (!oText.value) { // 空字符是false
+            oText.style.border = '1px solid red';
+        }
+
+        // 使用逻辑运算简写，压缩原理
+        oText.value || (oText.style.border = '1px solid red');
+
+        if (oText.value) { // 非空字符为true
+            oText.style.border = '1px solid green';
+        }
+
+        oText.value && (oText.style.border = '1px solid red'); // 简写
+
+        /* 整合*/
+        oText.style.border = '1px solid #aaa';
+        if (oText.value) {
+            oText.style.borderColor = 'green';
+
+        } else {
+            oText.style.borderColor = 'red';
+        }
+
+        oText.style.borderColor = oText.value ? "green" : "red"; // 简写
+
+        /* 当判断的值为0和1时*/
+        var oSelect = document.getElementById('select');
+        if (+oSelect.value) {
+            console.info('在字符串前面加上+号，将强制性把字符串转换成数字类型。');
+        }
+
+        /* 判断数组是否为空*/
+        var aArray = [];
+        if (aArray.length) {...}
+    </script>
+
+    <script>
+
+        /*
+        console.log(window.window.window.window.window.window.window);
+        console.log(RegExp);
+        console.log(Date);
+        console.log(Error);
+
+        function cs() {
+            var a = 1;
+            delete a;
+            a = 2;
+        }
+        cs();
+        console.log(a);
+
+
+        var a = 1;
+        b = (a++)+a;
+        console.log(a + "==" + b);
+
+
+        var fun = function() {
+            this.toString = function() {
+                return "obj.toString Function"
+            }
+
+            this.valueOf = function() {
+                return 123123;
+            }
+        }
+
+        var obj = new fun;
+
+        // console.log(obj + 1);
+        // console.log(obj * 1);
+        // console.log(new Date().valueOf());
+
+        "a===b" == "typeof a == typeof b && a == b";
+        "a==b" == "typeof a == typeof b || a == b";
+
+
+        var a = [], b = a, c = [];
+        console.log(a == c);
+        console.log(a == b);
+        */
+
+
+        /*function error() {
+            throw new Error("这是一条Error信息");
+            if (true) alert(1);
+        }
+
+        // error();alert(1);
+
+        flag : try {
+                break flag;
+                error();
+            } catch (e) {
+                console.log(e, "==", e.name, "==", e.message);
+                break flag;
+            } finally {
+                // console.log("this is finally code....");
+            }
+        function debug() {
+            debugger;
+        }*/
+        // debug();
+
+
+        // "use strict" // 使用严格模式（放在代码的最前面）
+        /*
+        // 使用严格模式报错
+        var obj = {};
+        with(obj) o = 2;
+        console.log(obj.o);
+        a = "2";
+
+
+        // console.log(a);
+
+        function _this() {
+            a = 2;
+            console.log(this.a); // this为undefined;
+        }
+        //_this();
+        */
+
+        /*var a = [12,1, 3, 42, ,23, 43,45,3,99,80,50, 34,46,889,65,9,4345,356];
+        var b = a.filter(function(x) {return x>10&&x<100;});
+        console.log(b.sort());*/
+    </script>
+</body>
+</html>

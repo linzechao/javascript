@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>JSONP</title>
+</head>
+<body>
+	<!--
+	<script src="//sc/note/demo/slider/jq/jquery-1.8.3.js"></script>
+	-->
+	<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+	// 方法一：
+	function getJson(data) {
+		console.log(data);
+	}
+
+	// 方法二：
+	/*$.getJSON("//sc/php/note/jsonp.php?callback=?",
+	    function(data) {
+	        console.log(data);
+	    });*/
+
+	// 方法三：
+	$.ajax({
+		url: '//sc/git/php/note/jsonp.php',
+
+		dataType: 'jsonp',
+
+        jsonp: 'callback',
+
+		success: function(data) {
+			var json = JSON.parse(data);
+			console.log(data);
+		},
+
+		error: function(err) {
+			console.error(err);
+		}
+	});
+	</script>
+
+	<!-- 
+		方法一：
+		script引入的script需要在处理方法之后
+	<script src="//sc/php/note/jsonp.php?callback=getJson"></script> 
+	-->
+</body>
+</html>

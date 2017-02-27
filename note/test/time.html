@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Timer</title>
+</head>
+<body>
+<!-- 
+页面上有个button： <input type=button value="（10）秒后给个基佬" ID=XXX>
+脚本的要求：
+1.闭包，跑到指定的秒数就自动调另一个函数，比如每300秒调一次
+2.间隔指定秒数更新XXX的文字：（290）秒后。。。。，就是倒数计时，或者定义为每秒跳一次
+-->
+<button id="btn">10秒后给个基佬</button>
+<script>
+	btn.addEventListener('click', function () {
+		var time = 10,
+			timer = setInterval(function () {
+				// 闭包执行
+				(function (t) {
+					btn.innerHTML = t + '秒后给个基佬';
+					if (t <= 0) {
+						callback();
+						clearInterval(timer);
+						timer = null;
+					}
+				}(--time));
+			}, 1000);
+	});
+	// 回调
+	function callback() {
+		btn.innerHTML = '基佬来了';
+	}
+</script>
+</body>
+</html>

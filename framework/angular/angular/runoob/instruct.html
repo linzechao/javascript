@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>index3</title>
+</head>
+<body>
+	<div ng-app="">
+		<div ng-init="firstName='John'">
+			<h4>Angular指令</h4>
+			<p>在输入框中尝试输入：</p>
+			<p>姓名：<input type="text" ng-model="firstName"></p>
+			<p>你输入的为： {{ firstName }}</p>
+		</div>
+
+		<hr>
+		<div ng-init="names=['lin', 'ze', 'chao']">
+			<h4>使用 ng-repeat 来循环数组</h4>
+			<ul ng-repeat="x in names">
+				<li>{{x}}</li>
+			</ul>
+		</div>
+
+		<hr>
+		<div ng-init="person=[{name: 'lin', age: 30}, {name: 'ze', age: 40}, {name: 'chao', age: 20}]">
+			<ul>
+				<li ng-repeat="x in person">{{x.name + ' is age: ' + x.age}}</li>
+			</ul>
+		</div>
+	</div>
+	<script src="//cdn.bootcss.com/angular.js/1.4.1/angular.min.js"></script>
+</body>
+</html>

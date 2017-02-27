@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dome 1</title>
+	<script src="//cdn.bootcss.com/angular.js/1.4.1/angular.min.js"></script>
+	<script src="app.js"></script>
+	<style>
+		.mb10 {
+			margin-bottom: 10px !important;
+		}
+	</style>
+</head>
+<body>
+	<div class="app mb10" ng-app="app" ng-controller="MainCtrl">
+		<h4>Hello, {{message}}</h4>
+		<button type="button" ng-click="greet()">fine!</button>	
+	</div>
+	
+	<pie-chart class="mb10" width="400" height="400" data="data">this is a &lt;pie-chart&gt; label.</pie-chart>
+</body>
+</html>

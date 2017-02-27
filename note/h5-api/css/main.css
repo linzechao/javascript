@@ -1,0 +1,752 @@
+.pm20 {padding-bottom: 20px;}
+.nobold {font-weight: normal;}
+.f16 {font-size: 16px;}
+
+body {
+    background-image: url("../img/body-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.fixed-bg {
+    background-color: rgba(0, 0, 0, .4);
+    color: #fff;
+}
+
+header li {
+    margin-top: 35px;
+    margin-right: 20px;
+}
+
+aside {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    color: #fff;
+    transition: all .8s;
+}
+
+.well {color: #888;}
+aside a {color: #ddd;}
+
+.aside-show {right: 0;}
+
+progress {
+    width: 100%;
+    height: 20px;
+}
+
+iframe {
+    border: 2px solid #bbb;
+    border-radius: 10px;
+    width: 100%;
+    height: 200px;
+}
+
+:target {animation: target .6s ease 1 forwards;}
+@keyframes target {
+    0% {
+        font-size: 20px;
+        opacity: 1;
+    }
+    25% {opacity: 0;}
+    50% {
+        opacity: 1;
+        font-size: 60px;
+    }
+    75% {opacity: 0; transform: scale(1, 1);}
+    100% {opacity: 1;}
+}
+
+p {text-indent: 2em;}
+.drop p:first-child {text-indent: 0;}
+
+/* 首字下沉*/
+.drop p:first-child:first-letter {
+    float: left;
+    margin-top: -4px;
+    margin-right: 8px;
+    margin-left: 1em;
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+/* 对话框*/
+.dialog {
+    display: inline-block;
+    width: 160px;
+    height: 60px;
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    box-shadow: 1px 1px 2px #ccc;
+}
+
+.dialog:after {
+    float: right;
+    display: block;
+    width: 26px;
+    height: 20px;
+    margin-top: 12px;
+    margin-right: -33px;
+    
+    border-radius: 0 100% 0 0;
+
+    border: 1px solid #bbb;
+    border-left: 0;
+    border-bottom: 0;
+
+    transform: rotateZ(-46deg);
+
+    content: "";
+}
+
+.dialog:before {
+    float: right;
+    display: block;
+    width: 30px;
+    height: 20px;
+    margin-top: 0;
+    margin-right: -36px;
+    
+    border-radius: 0 100% 0 0;
+
+    border: 1px solid #bbb;
+    border-left: 0;
+    border-bottom: 0;
+
+    background-color: #f5f5f5;
+    content: "";
+}
+
+/* Super*/
+.superman {
+    width: 200px;
+    margin: 0 20px;
+}
+
+.super {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 150px;
+    margin-right: 20px;
+    border: 4px solid #ddd;
+    border-image: url(../img/border-bg.png) 27 27 round;
+    vertical-align: bottom;
+}
+
+.super div,
+.super em,
+.super strong {
+    position: absolute;
+    display: block;
+}
+.super div {background-color: #000;}
+
+.super .top-line {
+    width: 120px;
+    height: 4px;
+    left: 40px;
+    top: 0;
+    left: 40px;
+    margin-top: -4px;
+    margin-left: -4px;
+}
+
+.super .top-left-line {
+    width: 50px;
+    height: 4px;
+    top: 0;
+    left: 0;
+    margin-top: -4px;
+    margin-left: -14px;
+    transform-origin: top right;
+    transform: rotateZ(-40deg);
+}
+
+.super .top-right-line {
+    width: 50px;
+    height: 4px;
+    top: 0;
+    right: 0;
+    margin-top: -4px;
+    margin-right: -14px;
+    transform-origin: top left;
+    transform: rotateZ(40deg);
+}
+
+.super .bottom-left-line {
+    width: 153.5px;
+    height: 4px;
+    top: 30px;
+    left: 0;
+    margin-top: -4px;
+    transform-origin: top left;
+    transform: rotateZ(50deg);
+}
+
+.super .bottom-right-line {
+    width: 153.5px;
+    height: 4px;
+    top: 30px;
+    right: 0;
+    margin-top: -4px;
+    transform-origin: top right;
+    transform: rotateZ(-50deg);
+}
+
+.super .center-top-left {
+    width: 80px;
+    height: 20px;
+    top: 10px;
+    left: 28px;
+    transform: skew(-50deg);
+}
+
+.super .center-top-right {
+    width: 80px;
+    height: 20px;
+    top: 10px;
+    right: 28px;
+    transform: skew(50deg);
+}
+
+.super .center-bottom {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    border-width: 94px;
+    border-color: #000 transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+    border-left-width: 80px;
+    border-right-width: 80px;
+    transform: translateX(-50%);
+}
+
+.super .header {
+    right: 0;
+    width: 20px;
+    height: 23px;
+    margin-top: 10px;
+    margin-right: 40px;
+    background-color: #f5f5f5;
+}
+
+.super .header:before {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    width: 15px;
+    height: 13px;
+    background-color: #f5f5f5;
+    content: "";
+}
+
+.super .header:after {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    width: 20px;
+    height: 15px;
+    background-color: #000;
+    border-bottom-right-radius: 15px;
+    content: "";
+}
+
+.super .top {
+    top: 6px;
+    left: 32px;
+    width: 100px;
+    height: 62px;
+    border-radius: 90px 140px 110px 110px / 70px 70px 65px 65px;
+    background-color: #f5f5f5;
+    transform: rotateZ(-14deg);
+}
+
+.super .top:before {
+    position: absolute;
+    top: 13px;
+    left: 25px;
+    width: 70px;
+    height: 35px;
+    border-radius: 120px 150px 0 400px / 100px 150px 0 100px;
+    background-color: #000;
+    content: "";
+    z-index: 2;
+    transform: rotateZ(10deg);
+}
+
+.super .top:after {
+    position: absolute;
+    top: 34px;
+    left: 6px;
+    width: 110px;
+    height: 20px;
+    border-top-right-radius: 140px 100px;
+    border-bottom-left-radius: 100px 100px;
+    background-color: #f5f5f5;
+    transform-origin: top left;
+    transform: rotateZ(13deg);
+    content: "";
+}
+
+.super .bottom {
+    left: 66px;
+    bottom: 40px;
+    width: 34px;
+    height: 20px;
+    border-radius: 34px / 20px;
+    background-color: #f5f5f5;
+    transform: rotateZ(15deg);
+}
+
+.super .bottom:after {
+    position: absolute;
+    left: 8px;
+    width: 65px;
+    height: 10px;
+    border-bottom-left-radius: 50px 20px;
+    border-bottom-right-radius: 50px 20px;
+    background-color: #f5f5f5;
+    transform: rotateZ(-35deg);
+    content: "";
+}
+
+/* 第二个superman*/
+.super2 {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 151px;
+    vertical-align: bottom;
+}
+
+.super2 i,
+.super2 i:before,
+.super2 i:after {position: absolute;}
+
+.super2 i:before,
+.super2 i:after {content: "";}
+
+.super2 .layer1 {
+    top: 35px;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-top: 116px solid #000;
+}
+
+.super2 .layer2 {
+    top: 35px;
+    left: 6px;
+    border-left: 94px solid transparent;
+    border-right: 94px solid transparent;
+    border-top: 110px solid #f5f5f5;
+}
+
+.super2 .layer3 {
+    top: 35px;
+    left: 20px;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-top: 94px solid #000;
+}
+
+.super2 .layer1:before,
+.super2 .layer1:after,
+.super2 .layer2:before,
+.super2 .layer2:after,
+.super2 .layer3:before,
+.super2 .layer3:after {
+    top: -151px;
+    left: -83px;
+    width: 100px;
+    height: 35px;
+    background-color: #000;
+    transform: skew(-45deg);
+}
+
+.super2 .layer1:after {
+    left: -18px;
+    transform: skew(45deg);
+}
+
+.super2 .layer2:before,
+.super2 .layer2:after {
+    top: -140px;
+    left: -78px;
+    width: 96px;
+    height: 30px;
+    background-color: #f5f5f5;
+}
+
+.super2 .layer2:after {
+    left: -18px;
+    transform: skew(45deg);
+}
+
+.super2 .layer3:before,
+.super2 .layer3:after {
+    top: -114px;
+    left: -70px;
+    width: 88px;
+    height: 20px;
+    background-color: #000;
+}
+
+.super2 .layer3:after {
+    left: -18px;
+    transform: skew(45deg);
+}
+
+.super2 .font1 {
+    top: 15px;
+    left: 131px;
+    width: 30px;
+    height: 20px;
+    background-color: #f5f5f5;
+}
+
+.super2 .font1:before {
+    left: -4px;
+    width: 20px;
+    height: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #000;
+}
+
+.super2 .font1:after {
+    top: -2px;
+    left: -96px;
+    width: 110px;
+    height: 60px;
+    border-radius: 103px 60px 220px 80px / 100px 80px 60px 60px;
+    background-color: #f5f5f5;
+}
+
+.super2 .font2 {
+    top: 15px;
+    left: 55px;
+    width: 75px;
+    height: 30px;
+    border-radius: 150px 150px 150px 75px / 70px 100px 0 50px;
+    background-color: #000;
+}
+
+.super2 .font2:before {
+    top: 20px;
+    left: 70px;
+    width: 20px;
+    height: 30px;
+    background-color: #000;
+}
+
+.super2 .font2:after {
+    top: 30px;
+    left: -1px;
+    width: 100px;
+    height: 56px;
+    border-radius: 80px 70px 100px 80px / 50px 40px 80px 50px;
+    background-color: #f5f5f5;
+}
+
+.super2 .font3 {
+    top: 68px;
+    left: 60px;
+    width: 80px;
+    height: 22px;
+    border-radius: 0 50px 80px 60px / 10px 20px 30px 30px;
+    background-color: #000;
+}
+
+.super2 .font3:before {
+    top: -4px;
+    left: -16px;
+    border-top: 35px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 30px solid #000;
+    transform-origin: top left;
+    transform: rotateZ(-41deg);
+}
+
+.super2 .font3:after {
+    top: 13px;
+    left: 8px;
+    width: 35px;
+    height: 18px;
+    border-radius: 70px 120px 30px 70px / 60px 70px 10px 35px;
+    background-color: #f5f5f5;
+    transform-origin: top left;
+    transform: rotateZ(2deg); 
+}
+
+/* 标题前加文字*/
+/* 必须为连在一起的元素*/
+h2:before {content: counter(h2counter) '、';}
+
+.fixed-bg > article {
+    counter-increment: h2counter;
+    /* 布局出乎意料，可省略下面这句*/
+    counter-reset: h3counter;
+}
+
+h3:before {content: counter(h2counter) '-' counter(h3counter) '、';}
+
+.fixed-bg > article section {
+    counter-increment: h3counter;
+    /* 布局出乎意料，可省略下面这句*/
+    counter-reset: h4counter;
+}
+
+h4:before {content: counter(h2counter) '--' counter(h3counter) '--' counter(h4counter) '、';}
+
+.fixed-bg > article section article {
+    counter-increment: h4counter;
+}
+
+h5:before {content: counter(h5counter) '、';}
+
+aside ul > li {counter-increment: h5counter;}
+
+/* 多栏布局*/
+.raster {
+    margin-top: 40px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 20px;
+    -webkit-column-rule: 2px solid #ddd;
+}
+
+/* 盒模型布局*/
+.box {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /*-webkit-box-orient: horizontal;*/
+
+    /* 以后2个会干扰上面2个*/
+    /* 垂直对齐方式，可以垂直居中*/
+    /*-webkit-box-align: center;*/
+    /* 水平对齐，可以水平居中*/
+    -webkit-box-pack: center;
+
+    /* 反序*/
+    -webkit-box-direction: reverse;
+    height: 200px;
+    margin-top: 40px;
+    text-align: center;
+    color: #fff;
+}
+.box-top {
+    -webkit-box-flex: 1;
+    background-color: red;
+}
+.box-center {
+    -webkit-box-flex: 2;
+    background-color: green;
+}
+.box-bottom {
+    -webkit-box-flex: 1;
+    background-color: blue;
+}
+
+
+/* 各种图形*/
+.graph {margin-top: 40px;}
+.graph div {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.graph .square {background-color: red;}
+
+.graph .circe {
+    border-radius: 100%;
+    background-color: orange;
+}
+
+.graph .triangle {
+    border-bottom: 40px solid yellow;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+
+.graph .rhomboid {
+    transform: skew(-10deg);
+    background-color: green;
+}
+
+.graph .rhombus {
+    transform: rotate(-45deg);
+    background-color: cyan;
+}
+
+.graph .star5,
+.graph .star5:before,
+.graph .star5:after {
+    position: absolute;  
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 10px solid purple;
+    content: "";
+    transform: rotateZ(180deg);
+}
+
+.graph .star5:before {
+    margin-top: -3px;
+    margin-left: -17px;
+    transform: rotateZ(297deg);
+}
+
+.graph .star5:after {
+    margin-top: -3px;
+    margin-left: -25px;
+    transform: rotateZ(-297deg);
+}
+
+.graph .star6 {
+    position: absolute;
+    margin-top: -5px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid purple;
+}
+
+.graph .star6:after {
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 40px solid purple;
+    content: "";
+}
+
+.graph .hexagon {
+    position: absolute;
+    height: 20px;
+    margin-top: 10px;
+    background-color: red;
+}
+
+.graph .hexagon:before {
+    position: absolute;
+    margin-top: -10px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 10px solid red;
+    content: "";
+}
+
+.graph .hexagon:after {
+    position: absolute;
+    margin-top: 20px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 10px solid red;
+    content: "";
+}
+
+.graph .ellipse {
+    width: 20px;
+    margin-left: 60px;
+    border-radius: 20px / 40px;
+    background-color: blue;
+}
+
+.graph .egg {
+    width: 30px;
+    border-radius: 50% / 60% 60% 40% 40%;
+    background-color: yellow;
+}
+
+.graph .inifinly {
+    position: relative;
+    height: 20px;
+}
+
+.graph .inifinly:before,
+.graph .inifinly:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid green;
+    border-radius: 40px 40px 0 40px;
+    transform: rotateZ(-45deg);
+    content: "";
+}
+
+.graph .inifinly:after {
+    margin-left: 20px;
+    border-radius: 40px 40px 40px 0;
+    transform: rotateZ(45deg);
+}
+
+.graph .dialog2 {
+    border-radius: 4px;
+    background-color: cyan;
+}
+
+.graph .dialog2:after {
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 40px;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 6px solid cyan;
+    content: "";
+}
+
+.graph .love {
+    position: absolute;
+    margin-top: -40px;
+    margin-left: 50px;
+}
+
+.graph .love:before,
+.graph .love:after {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: red;
+    transform-origin: bottom right;
+    transform: rotateZ(-45deg);
+    content: "";
+}
+
+.graph .love:after {
+    margin-left: -16px;
+    transform-origin: bottom left;
+    transform: rotateZ(45deg);
+}
+
+.ellipse2 {margin-top: 40px;}
+
+.ellipse2 .ell1 {
+    width: 400px;
+    height: 200px;
+    border-radius: 200px 50px 50px 100px / 100px 200px 200px 200px;
+    background-color: #9fc;
+}
+
+/* canvas*/
+canvas {
+    margin-left: 20px;
+    vertical-align: bottom;
+}

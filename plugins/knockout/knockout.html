@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<title>Knockout.js</title>
+	<link rel="stylesheet" href="../bootstrap/bt.css">
+</head>
+<body class="container">
+	<!-- <h3>select</h3>
+	<select class="form-control" data-bind="options: result,
+		optionsText: 'name',
+		value: select"></select>
+	<hr> -->
+	<!-- <p><b data-bind="text: select().desc"></b>: <span data-bind="text: select().age"></span></p> -->
+	<!-- <p data-bind="text: mergeTx"></p> -->
+	<!-- <p>这是一个单纯的data-bind: text: <span data-bind="text: oble"></span></p> -->
+	<p><span data-bind="text: desc"></span> <span data-bind="text: age"></span></p>
+	<p><input class="form-control input-sm" type="text" data-bind="value: mergeTx"></p>
+	<script src="../jquery/jq.js"></script>
+	<script src="knockout-min.js"></script>
+	<script>
+		// 订阅发布模式
+		// 数据
+		var result = [
+		    {name: 'lin', desc: 'first name', age: 10},
+		    {name: 'ze', desc: 'second name', age: 20},
+    		{name: 'chao', desc: 'last name', age: 30}
+		],
+		// 模型
+		vModel = {
+			// 添加监听，默认result第一个元素
+			select: ko.observable(result[0]), // observable：变化的数据
+			tx: 'this is text.', // 写死的数据
+			oble: ko.observable('is value.'),
+			desc: ko.observable('test study.'),
+			age: ko.observable(44)
+		};
+
+  		// 使用内部元素来合并(必须外部声明使用)
+  		/*vModel.mergeTx = ko.dependentObservable(function () {
+  			return this.select().desc.bold() + ': ' + ('' + this.select().age).strike();
+  		}, vModel);*/
+  		// 或者下面一种写法
+  		vModel.mergeTx = ko.dependentObservable({
+  			// 固定键名
+  			read: function () {
+  				return this.desc() + ' ' + this.age();
+  			},
+  			write: function (value) {
+  				var nVal = value.lastIndexOf(' ');
+  				if (nVal > 0) {
+  					this.desc(value.substring(0, nVal));
+  					this.age(value.substring(nVal + 1));
+  				}
+  			},
+  			// 指定模型
+  			owner: vModel
+  		});
+
+  		// 使用监控数组
+  		var obleArr = ko.observableArray([
+			{name: 'lin', desc: 'first name', age: 10},
+			{name: 'ze', desc: 'second name', age: 20},
+			{name: 'chao', desc: 'last name', age: 30}
+		]);
+
+  		// 延迟去修改模型的值
+		/*setTimeout(function () {
+			vModel.oble('is changed.'); // 修改了视图模型的值
+			// vModel.tx('is changed.'); // 而写死的数据不能进行修改，不然报错
+		}, 2000);*/
+
+  		// 激活data-bind的使用方式
+  		// 第二个参数可以指定渲染区域范围
+		ko.applyBindings(vModel);
+	</script>
+</body>
+</html>

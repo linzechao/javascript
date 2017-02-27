@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ko1</title>
+	<link rel="stylesheet" href="../bootstrap/bt.css">
+	<style>
+		p {padding: 10px;}
+		span {
+			margin: 2px;
+			padding: 5px;
+			border: 1px solid #c2c2c2;
+			border-radius: 4px;
+			background-color: #f2f2f2;
+		}
+	</style>
+</head>
+
+
+<!-- 所有结果都可以使用javascript原生特性表示-->
+<body class="container">
+	<!-- <p class="bg-warning" data-bind="visible: showMessage"> -->
+	<p class="bg-warning" data-bind="visible: list().length > 0">
+		You will see this message only when "shouldShowMessage" holds a true value.
+	</p>
+	<!-- <p class="bg-success" data-bind="text: changeMessage"></p> -->
+	<!-- <p class="bg-success" data-bind="text: 'Hi, Loser'.toUpperCase();"></p> -->
+	<p class="bg-info">
+		yeh，我是<span class="text-primary" data-bind="html: details"></span>.
+	</p>
+	<p data-bind="css: {'bg-warning': num() < 6000}, style: {color: num() < 6000 ? 'red' : 'green'}, text: num">8000</p>
+	<p class="bg-warning">
+		<a data-bind="attr: {href: url, title: title}, text: changeMessage" target="_blank"></a>
+	</p>
+	<p data-bind="click: clickBtn">
+		<!-- clickBubble: false => 禁止事件冒泡-->
+		<button class="btn btn-info btn-sm" data-bind="click: getOptions, clickBubble: false">Click me +1</button>
+	</p>
+	<p data-bind="event: {mouseover: overEvent, mouseout: outEvent}">
+		<span>Mouse over me.</span>
+		<span data-bind="visible: showMessage">嗨喽，嗨喽~</span>
+	</p>
+	<!-- optionsCaption: 'optionsCaption...' 默认选项或者头部-->
+	<select class="form-control input-sm" data-bind="event: {change: getOptions},
+		options: options,
+		optionsText: 'name',
+		optionsValue: 'value',
+		optionsCaption: 'optionsCaption...',
+		disable: false,
+		enable: true,
+		value: 'two'"></select>
+	<br>
+	<!-- valueUpdate: change(默认) | keyup | keypress | afterkeydown-->
+	<input class="form-control input-sm" type="text" data-bind="value: num,
+		valueUpdate: 'change'">
+	<p>Send me span: <input type="checkbox" data-bind="checked: true"></p>
+	<ul><li><label><input type="checkbox" data-bind="event: {change: allCheck}, checked: checks().length === 4"> 全选</input></label></li></ul>
+	<ol>
+		<li><input type="checkbox" value="one" data-bind="checked: checks"></li>
+		<li><input type="checkbox" value="two" data-bind="checked: checks"></li>
+		<li><input type="checkbox" value="three" data-bind="checked: checks"></li>
+		<li><input type="checkbox" value="four" data-bind="checked: checks"></li>
+	</ol>
+
+
+	<script src="../jquery/jq.js"></script>
+	<script src="knockout-min.js"></script>
+	<script>
+	$(function () {
+		var viewModel = {
+			options: [{
+				name: 'option1',
+				value: 'one',
+				caption: 'o1~2'
+			}, {
+				name: 'option2',
+				value: 'two',
+				caption: 'o1~2'
+			}, {
+				name: 'option3',
+				value: 'three',
+				caption: 'o3~4'
+			}, {
+				name: 'option4',
+				value: 'four',
+				caption: 'o3~4'
+			}],
+			showMessage: ko.observable(false),
+			checks: ko.observableArray(['one', 'four']),
+			list: ko.observableArray([]),
+			changeMessage: ko.observable('Hi, Loser.'),
+			details: ko.observable(),
+			num: ko.observable(10000),
+			url: ko.observable('//www.baidu.com'),
+			title: ko.observable('Report including final year-end statistics.'),
+			// 外部调用时，可不加wiewModel前缀
+			clickBtn: function (event, target) {
+				// true，外部调用时可使用
+				// console.log(event === this);
+				// 表示点击的目标对象
+				// console.log(target.toElement);
+				this.num(this.num() + 1);
+			},
+			overEvent: function () {
+				this.showMessage(true);
+			},
+			outEvent: function () {
+				this.showMessage(false);
+			},
+			getOptions: function (event, target) {
+				// console.log(event);
+				// console.log(target.currentTarget.value);
+				this.num(target.currentTarget.value)
+			},
+			allCheck: function (event, target) {
+				if (target.target.checked) {
+					this.checks(['one', 'two', 'three', 'four']);
+				} else {
+					this.checks([]);
+				}
+				// this.checks(['one', 'two', 'three', 'four']);
+				// this.check(!this.check());
+			}
+		};
+
+		// 会覆盖掉上面的初始化
+		// 或者使用上面的html字面量声明
+		viewModel.changeMessage = ko.dependentObservable(function () {
+			return 'Hi, Loser'.toLowerCase();
+		});
+
+		viewModel.details('<strong>Superman</strong>');
+
+		// 延迟执行
+		setTimeout(function () {
+			// viewModel.showMessage(false);
+			// viewModel.list.push('hi, super.');
+			// viewModel.changeMessage('Hello, I\'m Loser.');
+			viewModel.num(5800);
+		}, 2000);
+
+		ko.applyBindings(viewModel);
+	});
+	</script>
+	<!-- 疑问：-->
+	<!-- 
+		1、事件冒泡阻止不了
+			—— 额，首先你得有事件，哈哈。
+	-->
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>Module JavaScript</title>
+	<link href="css/helper/bootstrap.min.css" rel="stylesheet">
+  <style>
+    #alert {
+      position: fixed;
+      display: none;
+      top: 0;
+      left: 50%;
+      margin: 0 auto;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body class="container">
+
+<div class="alert alert-warning alert-dismissible" id="alert" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Warning!</strong> Better check yourself, you're not looking too good.
+</div>
+
+
+<header>
+	<h1>Hello, Module! <small>JavaScript模块化~</small></h1>
+	<hr>
+</header>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control input-lg">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="jiaalert(1)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function jiaalert (a) {
+    alert(a);
+  }
+</script>
+<hr>
+<form class="form-horizontal" method="get">
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="user">User name</label>
+    <div class="col-sm-8">
+      <input class="form-control" id="user" name="user" type="text" placeholder="User name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="pass">Pass word</label>
+    <div class="col-sm-8">
+      <input class="form-control" id="pass" name="pass" type="password" placeholder="Pass word">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="again">Again pass</label>
+    <div class="col-sm-8">
+      <input class="form-control" id="again" name="again" type="password" placeholder="Again pass">
+    </div>
+  </div>
+  <div class="col-sm-offset-2 col-sm-10">
+    <div class="checkbox"><label><input name="remember-me" type="checkbox"> Remember me</label></div>
+    <p></p>
+    <button class="btn btn-primary" type="submit">提交</button>
+  </div>
+</form>
+
+<script src="js/main/sea.js"></script>
+<script src="js/main/sea-config.js"></script>
+<script>
+	// 入口
+	seajs.use('main');
+</script>
+</body>
+</html>

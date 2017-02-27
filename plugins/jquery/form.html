@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <style>
+    </style>
+</head>
+<body>
+<p id="results"></p>
+<form>
+    <select name="single">
+        <option>Single</option>
+        <option>Single2</option>
+    </select>
+    <select name="multiple" multiple="multiple">
+        <option selected="selected">Multiple</option>
+        <option>Multiple2</option>
+        <option selected="selected">Multiple3</option>
+    </select><br/>
+    <input type="checkbox" name="check" value="check1"/> check1
+    <input type="checkbox" name="check" value="check2" checked="checked"/> check2
+    <input type="radio" name="radio" value="radio1" checked="checked"/> radio1
+    <input type="radio" name="radio" value="radio2"/> radio2
+</form>
+<script src="../../work/version/jquery-1.8.3.js"></script>
+<script>
+    //$("#results").append( "<h2>" + $("form").serialize() + "</h2>");
+    console.log($("form").serialize());// 表单序列化成URL
+    console.log($("form").serializeArray());// 表单序列化成JSON对象数组
+    var a = {b:"b", c:"c"};
+    console.log($.param(a));// json对象序列化
+    var d = "e=e&f=f";
+    console.log($.param(d));
+</script>
+</body>
+</html>

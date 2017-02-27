@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>这是网页的标题</title>
+	<meta charset="utf-8">
+	<body>
+		<table border="1"><table>
+			<div><div></div></div>
+			<div>文本内容</div>
+			<input type="button" value="弹出html标签" onclick="alert_HTML()"/>
+			<input type="button" value="弹出body标签" onclick="alert_Body()"/>
+			<input type="button" value="弹出head标签" onclick="alert_Head()"/>
+			<input type="button" value="修改网页标题" onclick="up_Title()"/>
+			<input type="button" value="更改表格" onclick="up_Table()"/>
+			<input type="button" value="获取第一个div和他的子元素" onclick="get_Div()"/>
+			<input type="button" value="更改第二个div中的文本内容" onclick="up_div_text()"/>
+		</body>
+		</html>
+		<script type="text/javascript">
+function alert_HTML(){ //弹出html标签函数
+	var html = document.documentElement;
+	alert(html.tagName);
+}
+function alert_Body(){ //弹出body标签函数
+	var body = document.body;
+	alert(body.tagName);
+}
+function alert_Head(){//弹出head标签函数，
+	var html = document.documentElement;
+//head是html标签中的第一个子元素
+//childNodes可以获取某一标签内的所有子元素
+var head = html.childNodes[0].tagName;
+alert(head);
+}
+function up_Title(){
+//注意title标签内的＂这是网页的标题＂将被改变．
+document.title = "Web圈提提供的Dom图解入门教程";
+}
+function up_Table(){//为表格添加行，添加列并写入文本内容
+var Table = document.getElementsByTagName("table")[0];//获取网页内第一个表格
+var Tr = Table.insertRow(0);//为表格添加一行
+var Td = Tr.insertCell(0);//为新建的行，添加一列
+Td.innerHTML = "我是表格中的文本"; //利用innerHTML属性向td写入文本
+}
+function get_Div(){//获取第一个div和他的孩子
+	var div = document.getElementsByTagName("div")[0];
+	alert("我是第一个"+div.tagName);
+var child_div = div.childNodes[0];//虽然是子div,但是按解析顺序他在该页内是第二个出现的div,
+alert("我是第一个div的子元素．我也是"+child_div.tagName);
+}
+function up_div_text(){
+var div = document.getElementsByTagName("div")[2];//其实如果按解析顺序该div在本页应该是第3个，
+div.innerHTML = "欢迎阅读web圈提供的Dom图解入门教程．网址:http://www.web666.net 作者：康董";
+
+}
+</script>

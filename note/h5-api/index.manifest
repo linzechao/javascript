@@ -1,0 +1,31 @@
+CACHE MANIFEST
+
+# 第一行一定要为CACHE MANIFEST、注释也不行
+# 缓存文件
+# 版本号
+# v0.0.2
+
+# 需要缓存的文件
+CACHE:
+index.html
+bootstrap/dist/css/bootstrap.min.css
+css/main.css
+img/favicon.ico
+img/body-bg.jpg
+jquery/dist/jquery.min.js
+jquery/dist/jquery.min.map
+js/main.js
+bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+bootstrap/dist/fonts/glyphicons-halflings-regular.woff
+bootstrap/dist/fonts/glyphicons-halflings-regular.ttf
+bootstrap/dist/fonts/glyphicons-halflings-regular.svg
+bootstrap/dist/fonts/glyphicons-halflings-regular.eot
+
+# 不需要缓存的文件
+NETWORK:
+# *号代表不在本文件指定的其余所有文件
+*
+
+# 无法访问页面
+FALLBACK:
+error.html

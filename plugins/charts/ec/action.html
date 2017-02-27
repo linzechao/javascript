@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #one,
+        #two {
+            display: inline-block;
+            width: 50%;
+            height: 180px;
+            margin-top: 40px;
+        }
+
+        #ec {
+            width: 600px;
+            height: 50%;
+            margin: 40px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="one"></div><div id="two"></div>
+    <div id="ec"></div>
+    <script src="../bower_components/echarts/dist/echarts.min.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            // 图形参数
+            var twoOpt = {
+                title: {
+                    text: '某站点用户访问来源',
+                    subtext: '纯属虚构',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius : '55%',
+                        center: ['50%', '60%'],
+                        data:[
+                            {value:335, name:'直接访问'},
+                            {value:310, name:'邮件营销'},
+                            {value:234, name:'联盟广告'},
+                            {value:135, name:'视频广告'},
+                            {value:1548, name:'搜索引擎'}
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+
+            // DOM节点
+            var oneDOM = document.getElementById('one');
+                
+            var one = echarts.init(oneDOM);
+            one.setOption(twoOpt);
+
+            // 设置高亮
+            one.dispatchAction({
+                type: 'highlight',
+                seriesIndex: 0,
+                // seriesName: '访问来源',
+                dataIndex: 1,
+                // name: '邮件营销'
+            });
+
+            // 取消高亮
+            one.dispatchAction({
+                type: 'downplay',
+                seriesIndex: 0,
+                dataIndex: 1
+            });
+
+            // 选择图例legendSelect
+            // 取消选中图例legendUnSelect
+            // 不能使用数组
+            one.dispatchAction({
+                type: 'legendUnSelect',
+                name: '联盟广告'
+            });
+
+            // 显示提示工具
+            one.dispatchAction({
+                type: 'showTip',
+                seriesIndex: 0,
+                dataIndex: 3
+            });
+
+            // 缩放
+            one.dispatchAction({
+                type: 'dataZoom',
+                start: 50,
+                end: 50,
+                dataZoomIndex: 1,
+                startValue: 5,
+                endValue: 20
+            });
+        }());
+    </script>
+</body>
+</html>

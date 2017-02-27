@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans" ng-app="serviceApp">
+<head>
+    <title>Angular服务</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="img/favicon.ico">
+</head>
+<body class="container">
+    <h1>服务</h1>
+    <div ng-controller="serviceCtrl">
+        <p class="text-success" ng-bind="time | date: 'yyyy-MM-dd hh:mm:ss'"></p>
+        <!-- <p class="text-success">
+            {{time | date: 'yyyy-MM-dd hh:mm:ss'}}
+        </p> -->
+    </div>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        var app = angular.module('serviceApp', []);
+
+        app.controller('serviceCtrl', function($scope, $location, $http, $interval, spData) {
+            $scope.myURL = $location.absUrl();
+            console.log($location);
+            
+            $http.get('//sc/git/angular/note/service/data.json')
+                .then(function(res) {
+                    console.log(res);
+                });
+
+            $interval(function() {
+                // $scope.time = spData.format();
+                $scope.time = +new Date();
+            }, 1000);
+        });
+
+        // 自定义服务
+        app.service('spData', function() {
+            this.format = function(tag, now) {
+                var d = now || new Date(),
+                    year = d.getFullYear(),
+                    month = this.addZero(d.getMonth() + 1),
+                    day = this.addZero(d.getDate()),
+                    hours = this.addZero(d.getHours()),
+                    minutes = this.addZero(d.getMinutes()),
+                    second = this.addZero(d.getSeconds()),
+                    date = year + '-' + month + '-' + day,
+                    time = hours + ':' + minutes + ':' + second,
+                    full = date + ' ' + time;
+
+                switch (tag) {
+                    case 0:
+                        return +d;
+                    break;
+                    
+                    case 1:
+                        return date;
+                    break;
+
+                    case 2:
+                        return time;
+                    break;
+
+                    default:
+                        return full;
+                    break;
+                }
+            };
+
+            this.addZero = function (txt) {
+                return ('0' + txt).substr(-2);
+            }
+        });
+    </script>
+</body>
+</html>
