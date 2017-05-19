@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #alert {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: none;
+            background-color: rgba(0,0,0,.4);
+        }
+
+        #alert article {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 200px;
+            line-height: 200px;
+            background-color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <wqd-alert></wqd-alert>
+
+        <child-node parent-mess="Father"></child-node>
+
+        <my-example
+            :prop-a="2"
+            prop-b="ddkc"
+            prop-c="abac"
+            prop-f="100"
+            ></my-example>
+
+        <ol>
+            <li is="er-zi"
+                v-for="(item, index) of items"
+                @del="del(index)"
+                :index="index"
+                :name="item"></li>
+        </ol>
+    </div>
+    
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+// 全局组件
+Vue.component('wqd-alert', {
+    template: '<aside id="alert"><article>{{ txt }}</article></aside>',
+    /*
+    data: {
+        name: 'Super'
+    }
+    */
+    data: function() {
+        return {txt: '这是一个警告框！'}
+    }
+});
+
+// 子节点
+Vue.component('child-node', {
+    props: ['parentMess'],
+    template: '<p>My Parent Message is {{ parentMess }}.</p>'
+});
+
+Vue.component('er-zi', {
+    props: ['index', 'name'],
+    data: function() {
+        return {
+            nikename: name
+        }
+    },
+    template: '<li>{{ name }} <a href="javascript:;" @click="$emit(\'del\')">over</a></li>',
+    
+});
+
+// 带数据类型的组件
+Vue.component('myExample', {
+props: {
+    // 基础类型检测 （`null` 意思是任何类型都可以）
+    propA: Number,
+    // 多种类型
+    propB: [String, Number],
+    // 必传且是字符串
+    propC: {
+      type: String,
+      required: true
+    },
+    // 数字，有默认值
+    propD: {
+      type: Number,
+      default: 100
+    },
+    // 数组／对象的默认值应当由一个工厂函数返回
+    propE: {
+      type: Object,
+      default: function () {
+        return { message: 'hello' }
+      }
+    },
+    // 自定义验证函数
+    propF: {
+      validator: function (value) {
+        return value > 10
+      }
+    }
+  },
+    template: '<ul><li>{{ propA }}</li>' +
+        '<li>{{ propB }}</li>' +
+        '<li>{{ propC }}</li>' +
+        '<li>{{ propD }}</li>' +
+        '<li>{{ propE }}</li>' +
+        '<li>{{ propF }}</li>' +
+        '</ul>'
+});
+        
+
+var vm = new Vue({
+    el: '#app',
+    data: {
+        items: [
+            'MR',
+            'Super',
+            'lin',
+            'Chao'
+        ]
+    },
+    methods: {
+        del: function(index) {
+            this.items.splice(index, 1)
+        }
+    },
+    components: {
+    },
+});
+    </script>
+</body>
+</html>
+
+
