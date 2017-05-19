@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+.hide {
+    display: none;
+}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <p>{{ doubleMess }}</p>
+
+        <p :class="{ hide: isHide }">你看不见我！</p>
+        <p :class="cls">你看不见我！</p>
+
+        <p :style="{color: 'red', backgroundColor: 'green', borderRadius: '5px',
+        transform: 'translateY(-10px)'}">你看我是什么颜色？背景？字体？</p>
+
+        <p :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">呵呵呵呵</p>
+    </div>
+    
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello',
+            isHide: false,
+        },
+        computed: {
+            doubleMess: function() {
+                return new Array(3).join(this.message);
+            },
+
+            cls: function() {
+                this.isHide = true;
+
+                return {
+                    'active': true,
+                }
+            }
+        }
+    });
+    </script>
+</body>
+</html>

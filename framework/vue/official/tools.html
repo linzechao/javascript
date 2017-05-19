@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <section id="app">
+        <button v-bind:disabled="isValid" v-on:click="onClick">{{'呵呵' | double}}</button>
+        <button :disabled="isSB" @click="onTap">{{'傻逼' | double}}</button>
+    </section>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+(function() {
+    new Vue({
+        el: '#app',
+        data: {
+            isValid: true,
+            isSB: false
+        },
+        methods: {
+            onClick: function() {
+                this.isSB = true;
+            },
+
+            onTap: function() {
+                this.isValid = false;
+            }
+        },
+        filters: {
+            double: function(value) {
+                return new Array(3).join(value);
+            }
+        }
+    });
+}());
+    </script>
+</body>
+</html>
