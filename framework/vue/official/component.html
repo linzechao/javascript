@@ -47,6 +47,14 @@
                 :index="index"
                 :name="item"></li>
         </ol>
+
+        <div>
+            <h1>我是父组件的标题</h1>
+            <slot-comp>
+                <!--p>这是一些初始内容</p>
+                <p>这是更多的初始内容</p-->
+            </slot-comp>
+        </div>
     </div>
     
     <script src="../node_modules/vue/dist/vue.js"></script>
@@ -121,6 +129,14 @@ props: {
         '</ul>'
 });
         
+Vue.component('slot-comp', {
+    template: '<div>\
+        <h2>我是子组件的标题</h2>\
+        <slot>\
+            只有父组件没内容的时候显示\
+        </slot>\
+        </div>'
+});
 
 var vm = new Vue({
     el: '#app',
