@@ -18,5 +18,9 @@
   "homepage": "https://github.com/linzechao/vue#readme",
   "dependencies": {
     "vue": "^2.3.3"
+  },
+  "devDependencies": {
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
   }
 }
