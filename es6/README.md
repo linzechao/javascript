@@ -102,3 +102,33 @@ arr.next() // 循环下一次
 ```
 
 
+## 对象(Object)
+```es6
+// 属性简写
+let name = 'Super'
+let Person = {
+    name,
+    say() {
+        return 'Hello'
+    },
+    *dear() {
+        yield 'baobao'
+    }
+}
+// 等同于
+let Person = {
+    'name': name,
+    'say': function() {
+        return 'Hello'
+    },
+    'dear': funciton() {
+        // ...
+    }
+}
+
+// 1. 键名都会被设置成字符串(关键字无压力)
+// 2. *号代表Generator函数
+
+```
+
+
