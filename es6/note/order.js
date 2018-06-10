@@ -51,7 +51,3 @@ function bar(x = 2, y = x) {
 
 // 5.const与let一样，具有局部作用域
 // const no; // 报错
-
-
-
-

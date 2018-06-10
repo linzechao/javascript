@@ -5,19 +5,3 @@
 // require('./note/regexp.js');
 // require('./note/array.js');
 require('./note/function.js');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

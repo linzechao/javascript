@@ -119,7 +119,7 @@ console.log(callSum(10, 2));
 
 
 #### 单体内置对象
-> 1、Global: evar()、URI、undefined...、window
+> 1、Global: eval()、URI、undefined...、window
 >
 > 2、Math：随机数 = Math.floor(Math.random() * 可能值的总数 + 第一个可能值);
 
@@ -162,7 +162,16 @@ Object.defineProperties(me, {
 // 获取特性属性
 Object.getOwnPropertyDescriptor(me, 'name');
 ```
-
+> 6、可枚举属性
+``` js
+var keys = Object.keys(Person.prototype);
+var keys = Object.keys(p1);
+```
+> 7、所有属性
+``` js
+var attrs = Object.getOwnPropertyNames(Person.prototype);
+var attrs = Object.getOwnPropertyNames(p1);
+```
 
 #### 设计模式
 > 1、工程模式
@@ -197,7 +206,6 @@ var p2 = new Person('Chao', 20, 'Student');
 p1.constructor === Person;
 p2.constructor === Person;
 ```
-
 > 3、原型模式
 ``` js
 // 缺点：无私共享，但有属性为引用类型时就导致所有后代中该值的变换
@@ -217,19 +225,7 @@ var p1 = new Person();
 // Person.prototype.isPrototypeof(p1); // true
 // hasOwnProperty(); 判断是否为自身属性
 ```
-
-> 4、可枚举属性
-``` js
-var keys = Object.keys(Person.prototype);
-var keys = Object.keys(p1);
-```
-
-> 5、所有属性
-``` js
-var attrs = Object.getOwnPropertyNames(Person.prototype);
-var attrs = Object.getOwnPropertyNames(p1);
-```
-> 6、使用覆盖/重写的原型模式
+> 4、使用覆盖/重写的原型模式
 ``` js
 // 缺点：破坏[[prototype]]指针
 // Person.prototype = {};
@@ -241,7 +237,7 @@ Object.defineProperty(Person.prototype, 'constructor', {
 	enumerable: false
 });
 ```
-> 7、结合构造函数模式与原型模式
+> 5、结合构造函数模式与原型模式
 ``` js
 // 常用，公认
 function Person(name, age, job) {
@@ -257,7 +253,7 @@ Person.prototype = {
 	}
 };
 ```
-> 8、动态原型模式
+> 6、动态原型模式
 ``` js
 // 完美，动态生成必要的属性
 function Person(name, age, job) {
@@ -272,7 +268,7 @@ function Person(name, age, job) {
 	}
 }
 ```
-> 9、寄生构造函数模式
+> 7、寄生构造函数模式
 ``` js
 // 与工厂模式一模一样，但使用new创建对象
 // 缺点也是一点继承关系都没有
@@ -288,7 +284,7 @@ function Person(name, age, job) {
 }
 var p1 = new Person('Super', 24, 'FE');
 ```
-> 10、稳妥构造函数模式
+> 8、稳妥构造函数模式
 ``` js
 // 与寄生构造函数模式类似
 // 不使用this、new

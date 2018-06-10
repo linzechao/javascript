@@ -109,8 +109,3 @@ for (let [key, value] of ['a', 'b', 'c', 'x', 'y', 'z'].entries()) {
 
 // 8.数组的空位
 cl(0 in Array(3));
-
-
-
-
-

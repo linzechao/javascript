@@ -44,27 +44,3 @@ Number.isNaN('true'/'true') // true
 
 // 6.Number.isSafeInteger
 // 安全整数
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

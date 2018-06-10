@@ -37,4 +37,3 @@
     1. 不轻：压缩后470k，主要300k，基本204k
 * [点我](http://echarts.baidu.com/)
 * ![各模块大小](images/ec.png)
-

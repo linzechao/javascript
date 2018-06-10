@@ -116,7 +116,7 @@ Array.from('Hello').map(x => x + x)
 let arr = {a: 1, b: 2, c: 3, d: 4}
 // 需要配合for of
 arr.keys() // [0, 1, 2, 3]
-arr.values() // 报错 // ['a', 'b', 'c', 'd']
+arr.values() // 报错，直接遍历数组实例即可，['a', 'b', 'c', 'd']
 arr.entries() // {0: 'a', 1: 'b', 2: 'c', 3: 'd']
 arr.next() // 循环下一次
 ```
@@ -148,7 +148,108 @@ let Person = {
 
 // 1. 键名都会被设置成字符串(关键字无压力)
 // 2. *号代表Generator函数
-
 ```
 
 
+## 队列(Set)、对象队列(WeakSet)、集合(Map、本质上是键值对的集合)、WeakMap(键为对象的集合)
+#### Set
+> 与数组(Array)区别：Set不会保存重复的值
+```es6
+// 去重
+[...new Set([1, 2, 2, 3, 4, 4])] // [1, 2, 3, 4]
+// 属性
+set.size
+// 方法
+set.add(value)
+set.delete(value)
+set.has(value)
+set.clear()
+// 遍历(for of)，遍历的键名与值都是一致的
+set.keys()
+set.values()
+set.entries()
+set.forEach()
+
+// ========
+let a = new Set([1, 2, 3]);
+let b = new Set([4, 3, 2]);
+
+// 并集
+let union = new Set([...a, ...b]);
+// Set {1, 2, 3, 4}
+
+// 交集
+let intersect = new Set([...a].filter(x => b.has(x)));
+// set {2, 3}
+
+// 差集
+let difference = new Set([...a].filter(x => !b.has(x)));
+// Set {1}
+```
+#### WeakSet
+```es6
+// 与Set一样，但只能保存对象
+// 不适合存放引用，weakSet有自己一套垃圾回收机制
+// 不能遍历
+// 主要用处：存储DOM节点
+```
+#### Map
+```es6
+// 键值无下限
+// 属性
+map.size
+// 方法
+map.set(key, value)
+map.get(key)
+map.has(key)
+map.delete(key)
+map.has(key)
+map.clear()
+// 遍历(for of)，遍历的键名与值都是一致的
+set.keys()
+set.values()
+set.entries()
+set.forEach()
+for (let [key, value] of map.entries()) {}
+```
+#### WeakMap
+```es6
+// 与Map一样，但键只能为对象
+// 一样有自己的垃圾回收机制
+// 也是适用于存储DOM节点
+```
+
+
+## 异步开发(Promise)
+```es6
+// 实例化，或创建
+let promise = new Promise((resolve, reject) => {
+    if (true) {
+        resolve('成功')
+        return;
+    }
+
+    reject('失败')
+})
+
+// 监听、或接收
+promise.then(
+result => console.log('成功'),
+failure => console.log('失败')
+)
+
+// 捕获异常
+promise.catch(error => console.log(error))
+
+// 确保一定捕获异常
+promise.done();
+
+// 不管成功失败一定执行
+promise.finally()
+```
+
+
+#### 遍历器(Iterator、for...of)
+```es6
+
+```
